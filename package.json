@@ -9,12 +9,13 @@
   "author": "Nathan Fiscaletti <nate.fiscaletti@gmail.com>",
   "license": "ISC",
   "bin": {
-      "coattail": "./bin/index.js"
+    "coattail": "./bin/index.js"
   },
   "dependencies": {
-    "calvin-di": "0.0.2",
     "express": "^4.17.2",
     "js-yaml": "^4.1.0",
+    "knex": "^0.95.15",
+    "mysql": "^2.18.1",
     "yargs": "^17.3.1"
   }
 }

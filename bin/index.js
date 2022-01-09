@@ -1,4 +1,4 @@
 #!/usr/bin/env node
 
-const { cli } = require(`../`);
-cli.process();
+const cli = require(`../lib/cli`);
+cli.execute();
