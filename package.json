@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "calvin-di": "0.0.2",
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "js-yaml": "^4.1.0"
   }
 }
