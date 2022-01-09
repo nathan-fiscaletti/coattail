@@ -1,6 +1,0 @@
-host: '127.0.0.1'
-port: 1234
-https:
-  enabled: false
-  certificate: '/absolute/path/to.crt'
-  private_key: '/absolute/path/to.key'

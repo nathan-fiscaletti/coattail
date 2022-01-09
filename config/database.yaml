@@ -1,6 +1,0 @@
-# MySql database used for storing information.
-host: 'localhost'
-port: 3306
-user: 'root'
-password: 'password'
-database: 'coattail'
