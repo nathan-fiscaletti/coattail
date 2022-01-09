@@ -1,0 +1,7 @@
+1. Make sure to avoid chained subscriptions. If X subscribes to both Y and Z and Y is subscribted to Z, when Z makes a purchase Y should make a purchase and X should make a purchase, but Y making that purchase shouldn't cause X to make two purchases (one for Y and one for Z).
+
+2. When sharing subscription codes, they should be generated (or include auth) so that only those you want to can subscribe.
+
+3. Be able to allocate fund limits to particular subscriptions.
+
+4. Be able to configure scaled purchases and limits for subscriptions.

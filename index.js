@@ -1,3 +1,8 @@
-const coattail = require(`./lib/coattail`);
+const api = require(`./lib/api`);
+const cli = require(`./lib/cli`);
 
-coattail.startApiServer(1195);
+module.exports = {
+    api,
+    cli
+};
+

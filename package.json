@@ -8,9 +8,13 @@
   },
   "author": "Nathan Fiscaletti <nate.fiscaletti@gmail.com>",
   "license": "ISC",
+  "bin": {
+      "coattail": "./bin/index.js"
+  },
   "dependencies": {
     "calvin-di": "0.0.2",
     "express": "^4.17.2",
-    "js-yaml": "^4.1.0"
+    "js-yaml": "^4.1.0",
+    "yargs": "^17.3.1"
   }
 }

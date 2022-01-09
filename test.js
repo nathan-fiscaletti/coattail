@@ -1,3 +1,3 @@
-const fs = require(`fs`);
+const coattail = require(`./`);
 
-console.log(fs.readdirSync(__dirname).filter(val => val.endsWith('.js')))
+coattail.api.serve();
