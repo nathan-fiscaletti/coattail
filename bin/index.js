@@ -1,4 +1,5 @@
 #!/usr/bin/env node
 
-const cli = require(`../lib/cli`);
-cli.execute();
+const path = require(`path`);
+const cli = require(path.join(__dirname, '..', 'lib', 'cli'));
+cli();

@@ -1,21 +1,23 @@
 {
-  "name": "coattail-js",
+  "name": "coattail",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Nathan Fiscaletti <nate.fiscaletti@gmail.com>",
-  "license": "ISC",
   "bin": {
     "coattail": "./bin/index.js"
   },
+  "author": "Nathan Fiscaletti <nate.fiscaletti@gmail.com>",
+  "license": "MIT",
   "dependencies": {
-    "express": "^4.17.2",
     "js-yaml": "^4.1.0",
-    "knex": "^0.95.15",
-    "mysql": "^2.18.1",
-    "yargs": "^17.3.1"
+    "jsonwebtoken": "^8.5.1",
+    "super-cli": "^1.0.1",
+    "uuid": "^8.3.2"
   }
 }

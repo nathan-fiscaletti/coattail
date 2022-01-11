@@ -1,0 +1,17 @@
+server:
+  tls:
+    use_tls: false
+    private_key: "path/to/private/key"
+    certificate: "path/to/certificate"
+  listen:
+    host: "localhost"
+    port: 1234
+  keep_alive_interval: 2000
+
+authentication:
+  private_key:
+    type: "string"
+    value: "asdf1234"
+  public_key:
+    type: "string"
+    value: "asdf1234"
