@@ -1,4 +1,4 @@
-const { queueAction } = require(`./lib/data/connection`);
+const { queueAction } = require(`../lib/data/connection`);
 
 queueAction("test", {name: "nathan", age: 26})
     .then(() => console.log('inserted'))

@@ -17,6 +17,8 @@
   "dependencies": {
     "js-yaml": "^4.1.0",
     "jsonwebtoken": "^8.5.1",
+    "knex": "^0.95.15",
+    "sqlite3": "^5.0.2",
     "super-cli": "^1.0.1",
     "uuid": "^8.3.2"
   }
