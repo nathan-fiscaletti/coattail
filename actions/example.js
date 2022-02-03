@@ -1,3 +1,5 @@
-const publish = () => {
-    return {name: "Nathan"};
+const publish = async (data) => {
+    return {name: "Nathan", data};
 };
+
+module.exports = { publish };
