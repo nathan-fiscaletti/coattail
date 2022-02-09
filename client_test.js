@@ -2,14 +2,24 @@
 // console.log(operations.client.auth_failure);
 
 const log = require(`./lib/log`);
-const logger = log(`Client`);
 
 const config = require(`./lib/client/config`).load();
 const Client = require(`./lib/client/client`);
-const serverOperations = require(`./lib/protocol-loader`)('server');
+const Operations = require(`./lib/protocol/protocol-loader`);
 
-const client = Client.connect(config, logger);
+const client = Client.connect(config);
 
-client.on('authenticated', () => {
-    serverOperations.get('actions.perform').send(client, 'example', {});
+client.on('ready', () => {
+    client.logger.info('client ready');
+    Operations.get('actions.perform', {
+        action: 'example',
+        data: {age: 26}
+    }).terminate(client, (action_yield) => {
+        Operations.get('actions.queue', {
+            ...action_yield
+        }).terminate(client, (response) => {
+            console.log(response);
+            client.disconnect();
+        });
+    });
 });
