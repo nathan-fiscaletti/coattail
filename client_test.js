@@ -1,11 +1,6 @@
-// const operations = require(`./lib/protocol`);
-// console.log(operations.client.auth_failure);
-
-const log = require(`./lib/log`);
-
 const config = require(`./lib/client/config`).load();
 const Client = require(`./lib/client/client`);
-const Operations = require(`./lib/protocol/protocol-loader`);
+const Operations = require(`./lib/protocol`);
 
 const client = Client.connect(config);
 
