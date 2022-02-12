@@ -1,6 +1,0 @@
-client:
-  tls:
-    use_tls: false
-  host: "localhost"
-  port: 1234
-  auth: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NDE4NzQwMDksIm5iZiI6MTY0MTg3NDAwOSwiZXhwIjoxNzk5NjYyMDA5LCJpc3MiOiJsb2NhbGhvc3Q6MTIzNCJ9.oa3vSUL2KcQ356YUecpVlct6zCCmOios4CbdA0Ng2Lg"

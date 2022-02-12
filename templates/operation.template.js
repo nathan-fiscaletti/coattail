@@ -3,9 +3,10 @@ const Operation = require("../../operation");
 module.exports = class extends Operation {
     constructor(opCode, chain, data = []) {
         super(
-            Operation.TYPE.TERMINAL,
-            Operation.DIRECTION.HOST_TO_CLIENT,
+            Operation.TYPE.INITIAL,
+            Operation.DIRECTION.CLIENT_TO_HOST,
             {
+                authenticatedOnly: false,
                 opCode,
                 chain,
                 data
@@ -13,8 +14,7 @@ module.exports = class extends Operation {
         );
     }
 
-    //@on-client
-    async handle(client) {
-        client._notifyAuthenticated(this.data);
+    async handle(connection) {
+        
     }
 };

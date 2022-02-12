@@ -5,3 +5,51 @@
 3. Be able to allocate fund limits to particular subscriptions.
 
 4. Be able to configure scaled purchases and limits for subscriptions.
+
+# Server
+$ coattail server start
+
+# Peers
+$ coattail peer add <token>
+$ coattail peer list [--detailed]
+$ coattail peer remove <id>
+$ coattail peer show <id> [--detailed]
+
+# Tokens
+$ coattail token issue \
+          [--subscribable <json-array>] \
+          [--performable <json-array>] \
+          [--publishable <json-array>] \
+          [--not-before <datetime>] \
+          [--expires-in <datetime>]
+
+# Actions
+$ coattail action create <name>
+$ coattail action list \
+                  [--peer <peer-id>]
+$ coattail action perform \
+                  [--peer <peer-id>] \
+                  [--action <action-id>|<action-name>] \
+                  [--data <data-file|data-str>]
+$ coattail action publish \
+                  [--peer <peer-id>] \
+                  [--action <action-id>|<action-name>] \
+                  [--data <data-file|data-str>]
+$ coattail action subscribe \
+                  --peer <peer-id> \
+                  --action <action-id>|<action-name> \
+                  --receiver <action-id>|<action-name>
+
+
+// 
+// 
+
+/*
+echo $(
+cat <<-EOM
+    {
+        "name": "nathan"
+    }
+EOM
+)
+*/

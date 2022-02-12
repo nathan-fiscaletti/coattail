@@ -15,11 +15,16 @@
   "author": "Nathan Fiscaletti <nate.fiscaletti@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "ansi-colors": "^4.1.1",
+    "cli-table": "^0.3.11",
+    "command-line-args": "^5.2.1",
+    "command-line-usage": "^6.1.1",
     "js-yaml": "^4.1.0",
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.95.15",
+    "moment": "^2.29.1",
+    "node-json-color-stringify": "^1.1.0",
     "sqlite3": "^5.0.2",
-    "super-cli": "^1.0.1",
     "uuid": "^8.3.2"
   }
 }

@@ -7,7 +7,7 @@ server:
     host: "localhost"
     port: 1234
   keep_alive_interval: 2000
-  session_id_factory: 'incremental'
+  session_id_factory: 'uuid'
 
 authentication:
   private_key:
