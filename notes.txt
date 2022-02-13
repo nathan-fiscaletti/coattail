@@ -1,11 +1,3 @@
-1. Make sure to avoid chained subscriptions. If X subscribes to both Y and Z and Y is subscribted to Z, when Z makes a purchase Y should make a purchase and X should make a purchase, but Y making that purchase shouldn't cause X to make two purchases (one for Y and one for Z).
-
-2. When sharing subscription codes, they should be generated (or include auth) so that only those you want to can subscribe.
-
-3. Be able to allocate fund limits to particular subscriptions.
-
-4. Be able to configure scaled purchases and limits for subscriptions.
-
 # Server
 $ coattail server start
 
@@ -31,6 +23,7 @@ $ coattail action perform \
                   [--peer <peer-id>] \
                   [--action <action-id>|<action-name>] \
                   [--data <data-file|data-str>]
+                  [--notify-subscribers]
 $ coattail action publish \
                   [--peer <peer-id>] \
                   [--action <action-id>|<action-name>] \
@@ -40,16 +33,25 @@ $ coattail action subscribe \
                   --action <action-id>|<action-name> \
                   --receiver <action-id>|<action-name>
 
+$ coattail action queue \                                              !! NEW !!
+                  --peer <peer-id> \                                   !! NEW !!
+                  --action <action-id>|<action-name> \                 !! NEW !!
+                  --data <data>                                        !! NEW !!
+$ coattail action validate \                                           !! NEW !!
+                  --action <action-id>|<action-name>                   !! NEW !!
 
-// 
-// 
+Move issue token to Server instead of Peer.                            !! NEW !!
+Peer should have functions that abstract all operations.               !! NEW !!
+Peer should run functions either on local instance or on remote peer.  !! NEW !!
+Add a 'subscribed_to' field to token claims.                           !! NEW !!
+Add an option to commands to have machine readable output              !! NEW !!
+Add verbose flag to commands                                           !! NEW !!
 
-/*
-echo $(
-cat <<-EOM
-    {
-        "name": "nathan"
-    }
-EOM
-)
-*/
+?? Commands for Schemas ??                                             !! NEW !!
+
+module.exports = {
+    Schemas: {}
+};
+
+Actions should define a data schema that can be garaunteed to subscribers. This
+should be enforced when other instances send actions using that instance.
