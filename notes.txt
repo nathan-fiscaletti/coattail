@@ -14,6 +14,19 @@ $ coattail token issue \
           [--publishable <json-array>] \
           [--not-before <datetime>] \
           [--expires-in <datetime>]
+$ coattail token revoke \
+          --id <token-id>
+$ coattail token list \
+          [--detailed]
+$ coattail token show \
+          --id <token-id> \
+          [--print-raw-token]
+$ coattail token purge                                                 !! NEW !!
+
+#4e88e6 -- blue
+#e64e4e -- red
+#6ce64e -- green
+#e6d74e -- yellow
 
 # Actions
 $ coattail action create <name>
@@ -47,6 +60,12 @@ Add a 'subscribed_to' field to token claims.                           !! NEW !!
 Add an option to commands to have machine readable output              !! NEW !!
 Add verbose flag to commands                                           !! NEW !!
 
+Two different types of tokens. VALIDATION token and AUTH token.        !! NEW !!
+validation tokens are given to issuers so that they can require that a !! NEW !!
+particular host be initiating the request.                             !! NEW !!
+Auth tokens can optionally require a particular bearer.                !! NEW !!
+I think i should keep the address space validator though.              !! NEW !!
+
 ?? Commands for Schemas ??                                             !! NEW !!
 
 module.exports = {
@@ -55,3 +74,7 @@ module.exports = {
 
 Actions should define a data schema that can be garaunteed to subscribers. This
 should be enforced when other instances send actions using that instance.
+
+Juogoslavia
+it is Juogoslavia
+Juogoslavia

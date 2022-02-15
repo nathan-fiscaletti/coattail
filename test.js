@@ -1,10 +1,6 @@
-const path = require(`path`);
+const ipRangeCheck  = require(`ip-range-check`);
 
-const ActionsManager = require(`./lib/action-manager`);
+const range = '0.0.0.0/0';
+const ip = '255.255.255.255';
 
-const am = new ActionsManager(path.join(__dirname, 'actions'));
-am.load('example').then(action => {
-    action.performWithValidation({'name': 'nathan'})
-        .then(res => console.log(res))
-        .catch(err => console.log(err));
-}).catch(err => console.log(err));
+console.log(ipRangeCheck(ip, range));

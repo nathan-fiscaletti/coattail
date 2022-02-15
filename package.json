@@ -15,10 +15,11 @@
   "author": "Nathan Fiscaletti <nate.fiscaletti@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "ansi-colors": "^4.1.1",
-    "cli-table": "^0.3.11",
+    "chalk": "^4.1.2",
+    "clipboardy": "^2.3.0",
     "command-line-args": "^5.2.1",
     "command-line-usage": "^6.1.1",
+    "ip-range-check": "^0.2.0",
     "js-yaml": "^4.1.0",
     "jsonschema": "^1.4.0",
     "jsonwebtoken": "^8.5.1",
@@ -26,6 +27,7 @@
     "moment": "^2.29.1",
     "node-json-color-stringify": "^1.1.0",
     "sqlite3": "^5.0.2",
+    "table": "^6.8.0",
     "uuid": "^8.3.2"
   }
 }
