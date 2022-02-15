@@ -53,18 +53,11 @@ $ coattail action queue \                                              !! NEW !!
 $ coattail action validate \                                           !! NEW !!
                   --action <action-id>|<action-name>                   !! NEW !!
 
-Move issue token to Server instead of Peer.                            !! NEW !!
 Peer should have functions that abstract all operations.               !! NEW !!
 Peer should run functions either on local instance or on remote peer.  !! NEW !!
 Add a 'subscribed_to' field to token claims.                           !! NEW !!
 Add an option to commands to have machine readable output              !! NEW !!
 Add verbose flag to commands                                           !! NEW !!
-
-Two different types of tokens. VALIDATION token and AUTH token.        !! NEW !!
-validation tokens are given to issuers so that they can require that a !! NEW !!
-particular host be initiating the request.                             !! NEW !!
-Auth tokens can optionally require a particular bearer.                !! NEW !!
-I think i should keep the address space validator though.              !! NEW !!
 
 ?? Commands for Schemas ??                                             !! NEW !!
 
@@ -75,6 +68,6 @@ module.exports = {
 Actions should define a data schema that can be garaunteed to subscribers. This
 should be enforced when other instances send actions using that instance.
 
-Juogoslavia
+I wrote a Haiku
 it is Juogoslavia
 Juogoslavia
