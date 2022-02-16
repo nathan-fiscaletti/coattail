@@ -1,3 +1,0 @@
-client: "sqlite3"
-connection:
-  filename: "C:/Users/Nathan/git-repos/personal/coattail/data.sqlite"

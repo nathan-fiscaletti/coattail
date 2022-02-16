@@ -4,7 +4,7 @@ const Operations = require(`./lib/protocol`);
 const { db } = require(`./lib/data/connection`);
 
 const database = db();
-Peer.load(database, '89476422-4f6f-4b8d-8cbf-35d0b9893b0f').then(peer => {
+Peer.load({id: '9027e199-79d4-4857-a300-be3790c0e35b'}).then(peer => {
     database.destroy();
 
     const client = Client.connect(peer);

@@ -1,7 +1,7 @@
-const configuration = require(`./lib/data/config`).load();
+const configuration = require(`./lib/config`).load();
 
 module.exports = {
-    ...configuration,
+    ...configuration.data,
     migrations: {
         directory: "./lib/data/migrations",
         tableName: 'knex_migrations'
