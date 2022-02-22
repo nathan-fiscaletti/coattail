@@ -1,23 +1,29 @@
-data:
-  client: "sqlite3"
-  connection:
-    filename: "./data.sqlite"
-
 server:
+  # TLS Configuration
   tls:
     use_tls: false
-    private_key: "path/to/private/key"
-    certificate: "path/to/certificate"
+    # tls properties should be identical to those specified here:
+    # https://nodejs.org/api/tls.html#tlscreateserveroptions-secureconnectionlistener
   listen:
-    host: "localhost"
+    host: "127.0.0.1"
     port: 1234
+  # How frequently to ask clients to send keep-alive packets.
   keep_alive_interval: 2000
+  # The session ID factory to use, can be either `uuid` or `incremental`.
   session_id_factory: 'uuid'
 
 authentication:
   private_key:
+    # Type can be either 'string' or 'file'.
     type: "string"
+    # If type is string, value should be the private key.
+    # If type is file, value should be the path to the file.
     value: "asdf1234"
   public_key:
     type: "string"
     value: "asdf1234"
+
+data:
+  client: "sqlite3"
+  connection:
+    filename: "./data.sqlite"
