@@ -1,3 +1,2 @@
-const jwt = require(`jsonwebtoken`);
-
-console.log(jwt.sign({}, 'asdf'));
+const { groups: { port } } = /--port\s(?<port>\d+)/.exec('coattail server start --asdf idk --port asdf --idk');
+console.log(port);

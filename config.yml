@@ -5,7 +5,7 @@ server:
     # tls properties should be identical to those specified here:
     # https://nodejs.org/api/tls.html#tlscreateserveroptions-secureconnectionlistener
   listen:
-    host: "127.0.0.1"
+    address: "127.0.0.1"
     port: 1234
   # How frequently to ask clients to send keep-alive packets.
   keep_alive_interval: 2000
