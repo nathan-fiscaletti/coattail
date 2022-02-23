@@ -1,2 +1,2 @@
-const { groups: { port } } = /--port\s(?<port>\d+)/.exec('coattail server start --asdf idk --port asdf --idk');
-console.log(port);
+console.log(JSON.stringify({name: undefined}));
+console.log(JSON.stringify({name: null}));
