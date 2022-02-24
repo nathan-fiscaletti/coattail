@@ -1,3 +1,6 @@
+# All paths in the config file should be relative to the root of the Coattail
+# installation.
+
 server:
   # TLS Configuration
   tls:
@@ -5,8 +8,9 @@ server:
     # tls properties should be identical to those specified here:
     # https://nodejs.org/api/tls.html#tlscreateserveroptions-secureconnectionlistener
   listen:
+    # Address must be a valid IPv4 address. Hostnames are not supported.
     address: "127.0.0.1"
-    port: 1234
+    port: 49365
   # How frequently to ask clients to send keep-alive packets.
   keep_alive_interval: 2000
   # The session ID factory to use, can be either `uuid` or `incremental`.
@@ -27,3 +31,6 @@ data:
   client: "sqlite3"
   connection:
     filename: "./data.sqlite"
+  migrations:
+    directory: "./lib/data/migrations"
+    tableName: "knex_migrations"
