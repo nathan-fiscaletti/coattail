@@ -1,0 +1,28 @@
+sequenceDiagram
+    participant PeerA
+    participant Action
+    participant PeerB
+    participant Receiver
+
+    Note over PeerA, Receiver: Subscribe to Action
+    PeerB ->> PeerA: Subscribe to Action
+    activate PeerA
+    PeerA ->> PeerB: Respond with remote Subscription Token ID
+    deactivate PeerA
+
+    Note over PeerA, Receiver: Perform Action
+    PeerA ->> Action: Perform Action
+    activate Action
+    note over Action: Logic
+    Action ->> PeerA: Respond with Result
+    deactivate Action
+    activate PeerA
+    PeerA ->> PeerB: Notify Subscriber with Result
+    deactivate PeerA
+    activate PeerB
+    PeerB ->> Receiver: Publish Action Result
+    deactivate PeerB
+    activate Receiver
+    note over Receiver: Logic
+    Receiver -->> PeerB: Discard Result
+    deactivate Receiver

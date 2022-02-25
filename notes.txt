@@ -29,3 +29,5 @@ Other Project Ideas:
 File sync utility
 Data streaming from scratch
 Pick one encryption standard and implement it from scratch
+
+Rename "server" command to "service"
