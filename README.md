@@ -4,6 +4,7 @@ Coattail is a secure [peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer) 
 
 It's intention is to allow users to subscribe to the results of actions being performed on peered instances of Coattail and subsequently perform their own action based on the publication from the peer.
 
+### General Use Case Sequence Diagram
 ```mermaid
 sequenceDiagram
     participant PeerA
