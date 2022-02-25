@@ -82,6 +82,14 @@ $ coattail action perform \
                   --data '{"message":"Hello, world!"}' \
                   --publish-results
 
+# Alternately, you can publish results directly to subscribers
+# without executing the action. This will not execute the logic
+# in the 'first-action', but will instead send the data directly
+# to subscribers.
+$ coattail action publish \
+                  --action 'first-action' \
+                  --data '{"message:"Hello, world!"}'
+
 # At this point, PeerB should receive the action and trigger
 # 'first-action-receiver'.
 ```
