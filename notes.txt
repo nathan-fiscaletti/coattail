@@ -1,26 +1,4 @@
-# Server
-$ coattail server start
 
-# Peers
-$ coattail peer add <token>
-$ coattail peer list [--detailed]
-$ coattail peer remove <id>
-$ coattail peer show <id> [--detailed]
-
-# Tokens
-$ coattail token issue \
-          [--subscribable <json-array>] \
-          [--performable <json-array>] \
-          [--publishable <json-array>] \
-          [--not-before <datetime>] \
-          [--expires-in <datetime>]
-$ coattail token revoke \
-          --id <token-id>
-$ coattail token list \
-          [--detailed]
-$ coattail token show \
-          --id <token-id> \
-          [--print-raw-token]
 $ coattail token purge                                                 !! NEW !!
 
 #4e88e6 -- blue
@@ -29,23 +7,6 @@ $ coattail token purge                                                 !! NEW !!
 #e6d74e -- yellow
 
 # Actions
-$ coattail action create <name>
-$ coattail action list \
-                  [--peer <peer-id>]
-$ coattail action perform \
-                  [--peer <peer-id>] \
-                  [--action <action-id>|<action-name>] \
-                  [--data <data-file|data-str>]
-                  [--notify-subscribers]
-$ coattail action publish \
-                  [--peer <peer-id>] \
-                  [--action <action-id>|<action-name>] \
-                  [--data <data-file|data-str>]
-$ coattail action subscribe \
-                  --peer <peer-id> \
-                  --action <action-id>|<action-name> \
-                  --receiver <action-id>|<action-name>
-
 $ coattail action queue \                                              !! NEW !!
                   --peer <peer-id> \                                   !! NEW !!
                   --action <action-id>|<action-name> \                 !! NEW !!
@@ -53,11 +14,9 @@ $ coattail action queue \                                              !! NEW !!
 $ coattail action validate \                                           !! NEW !!
                   --action <action-id>|<action-name>                   !! NEW !!
 
-Peer should have functions that abstract all operations.               !! NEW !!
 Add an option to commands to have machine readable output              !! NEW !!
 Add verbose flag to commands                                           !! NEW !!
 Packet permissions based on opcode                                     !! NEW !!
-
 
 ?? Commands for Schemas ??                                             !! NEW !!
 
@@ -70,15 +29,3 @@ Other Project Ideas:
 File sync utility
 Data streaming from scratch
 Pick one encryption standard and implement it from scratch
-
-This should get an A
-Because Yugoslavia
-Yugoslavia
-
-my haiku is good
-it is Yugoslavia
-it is good haiku
-
-I wrote a Haiku
-it is Juogoslavia
-Juogoslavia
