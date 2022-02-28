@@ -31,3 +31,5 @@ Data streaming from scratch
 Pick one encryption standard and implement it from scratch
 
 Rename "server" command to "service"
+Move tokens directory to configurable directory
+Make authentication keypair different than validation keypair.
