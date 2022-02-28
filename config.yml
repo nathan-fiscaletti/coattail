@@ -1,7 +1,11 @@
 # All paths in the config file should be relative to the root of the Coattail
 # installation.
 
-server:
+paths:
+  actions: "/home/nathan/git-repos/personal/coattail/actions/"
+  schemas: "/home/nathan/git-repos/personal/coattail/schemas/"
+
+service:
   # TLS Configuration
   tls:
     use_tls: false

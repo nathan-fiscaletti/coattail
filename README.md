@@ -42,9 +42,9 @@ sequenceDiagram
 # Create the action that will be used later.
 $ coattail action create 'first-action'
 
-# Start the server. Server must be running for other Coattail
+# Start the service. Service must be running for other Coattail
 # instances to add this instance as a Peer.
-$ coattail server start --headless
+$ coattail service start --headless
 
 # Issue a new token. Token will be copied to the clipboard.
 $ coattail token issue
@@ -56,9 +56,9 @@ $ coattail token issue
 # incoming publications.
 $ coattail action create 'first-action-receiver'
 
-# Start the server, allowing PeerA to communicate freely
+# Start the service, allowing PeerA to communicate freely
 # with this Coattail instance.
-$ coattail server start --headless
+$ coattail service start --headless
 
 # Add PeerA as a Peer. Will return a Peer ID.
 $ coattail peer add <token>
