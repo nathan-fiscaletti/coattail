@@ -1,9 +1,7 @@
-# All paths in the config file should be relative to the root of the Coattail
-# installation.
-
 paths:
-  actions: "/home/nathan/git-repos/personal/coattail/actions/"
-  schemas: "/home/nathan/git-repos/personal/coattail/schemas/"
+  root: "{root}"
+  actions: "{root}/actions/"
+  schemas: "{root}/schemas/"
 
 service:
   # TLS Configuration
@@ -22,19 +20,16 @@ service:
 
 authentication:
   private_key:
-    # Type can be either 'string' or 'file'.
-    type: "string"
-    # If type is string, value should be the private key.
-    # If type is file, value should be the path to the file.
-    value: "asdf1234"
+    type: "file"
+    value: "{root}/keys/key.pem"
   public_key:
-    type: "string"
-    value: "asdf1234"
+    type: "file"
+    value: "{root}/keys/key.pub"
 
 data:
   client: "sqlite3"
   connection:
-    filename: "./data.sqlite"
+    filename: "{dbfile}"
   migrations:
-    directory: "./lib/data/migrations"
+    directory: "{install}/lib/data/migrations"
     tableName: "knex_migrations"

@@ -15,7 +15,6 @@ $ coattail action validate \                                           !! NEW !!
                   --action <action-id>|<action-name>                   !! NEW !!
 
 Add an option to commands to have machine readable output              !! NEW !!
-Add verbose flag to commands                                           !! NEW !!
 Packet permissions based on opcode                                     !! NEW !!
 
 ?? Commands for Schemas ??                                             !! NEW !!
@@ -30,6 +29,16 @@ File sync utility
 Data streaming from scratch
 Pick one encryption standard and implement it from scratch
 
-Rename "server" command to "service"
-Move tokens directory to configurable directory
+Update subscription to not allow duplicates
+Double check error handling
+Apparently schema validation isn't working properly?
+Validate receiver schema
+Move actions directory to configurable directory
 Make authentication keypair different than validation keypair.
+
+
+Client -> Server: action, receiver
+Server -> Client: Get Validation token: (action, receiver)
+Client -> Server: Validation token: (action, receiver, validationToken)
+Server -> Client: Get Subscription token: (action, receiver, validationToken)
+Client -> Server: Subscription token: (action, receiver, validationToken, subscriptionToken)
