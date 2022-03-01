@@ -1,8 +1,11 @@
-module.exports = class extends require(`../lib/action`) {
+module.exports = class extends require(`{ACTION_PATH}`) {
     constructor() {
         super({
             // Define schemas inline, or reference them by ID based on the
             // schemas in the `schemas` directory.
+            //
+            // See https://github.com/tdegrunt/jsonschema for more information
+            // on JSON schemas.
             inputSchema: '/MyInputSchema',
             outputSchema: '/MyOutputSchema'
         });

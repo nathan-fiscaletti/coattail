@@ -17,6 +17,7 @@ service:
   keep_alive_interval: 2000
   # The session ID factory to use, can be either `uuid` or `incremental`.
   session_id_factory: 'uuid'
+  log: "{root}/service.log"
 
 authentication:
   private_key:
