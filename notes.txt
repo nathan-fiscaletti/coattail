@@ -29,15 +29,14 @@ Pick one encryption standard and implement it from scratch
 
 Update subscription to not allow duplicates
 Double check error handling
-Apparently schema validation isn't working properly?
 Validate receiver schema
-Move actions directory to configurable directory
 Make authentication keypair different than validation keypair.
 Add an option to commands to have machine readable output              !! NEW !!
 Packet permissions based on opcode                                     !! NEW !!
 Rate limitting
 Rename subscription token to publication token
 Separate receivers and actions
+Move verification key to it's own key?
 
 
 Client -> Server: action, receiver
