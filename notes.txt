@@ -5,6 +5,7 @@ $ coattail token purge                                                 !! NEW !!
 #e64e4e -- red
 #6ce64e -- green
 #e6d74e -- yellow
+#b0b0b0 -- gray
 
 # Actions
 $ coattail action queue \                                              !! NEW !!
@@ -13,9 +14,6 @@ $ coattail action queue \                                              !! NEW !!
                   --data <data>                                        !! NEW !!
 $ coattail action validate \                                           !! NEW !!
                   --action <action-id>|<action-name>                   !! NEW !!
-
-Add an option to commands to have machine readable output              !! NEW !!
-Packet permissions based on opcode                                     !! NEW !!
 
 ?? Commands for Schemas ??                                             !! NEW !!
 
@@ -35,6 +33,11 @@ Apparently schema validation isn't working properly?
 Validate receiver schema
 Move actions directory to configurable directory
 Make authentication keypair different than validation keypair.
+Add an option to commands to have machine readable output              !! NEW !!
+Packet permissions based on opcode                                     !! NEW !!
+Rate limitting
+Rename subscription token to publication token
+Separate receivers and actions
 
 
 Client -> Server: action, receiver
@@ -42,3 +45,5 @@ Server -> Client: Get Validation token: (action, receiver)
 Client -> Server: Validation token: (action, receiver, validationToken)
 Server -> Client: Get Subscription token: (action, receiver, validationToken)
 Client -> Server: Subscription token: (action, receiver, validationToken, subscriptionToken)
+
+eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJob3N0IjoiMTI3LjAuMC4xIiwicG9ydCI6NDkzNjUsInRscyI6ZmFsc2UsInZhbGlkQmVhcmVycyI6WyJpcHY0Oi8vMC4wLjAuMC8wIl0sInBlcmZvcm1hYmxlIjpbXSwicHVibGlzaGFibGUiOltdLCJzdWJzY3JpYmFibGUiOlsiKiJdLCJzdWJzY3JpYmVkVG8iOltdLCJ0eXBlIjoiQXV0aGVudGljYXRpb24iLCJpYXQiOjE2NDYyNjU3MTIsIm5iZiI6MTY0NjI2NTcxMiwiYXVkIjoiMTI3LjAuMC4xOjQ5MzY1IiwiaXNzIjoiMTI3LjAuMC4xOjQ5MzY1IiwianRpIjoiNDE0YjE2OTctZTY5MS00MGI4LWJjN2QtNjc3N2JiZGFjYjY0In0.D9JWpmhCFC7_3tLCaE-AZYAtbT9jg75UqTQzmwQHmiffqLS_T3ShlpXG9KirufDCXB4GTdJc6eXrbXjum_trqCRhLetnu5hNxX0wtnClB6pXkONg8X-6kPAQEJCVu4ZOHG9l90AUdr3-SgkMptlT8AIs_0oA5Ahaf6VygRFl5qeARQaoUTVGzq7_ACvcuD69dpvPX3UPlsZvxM3n7QUjttZ7pTgsiUhUAe1g-3AlaKbMCpQW2GkoKgIRyO1v83r6ub2-uN_59vaWQrTNAbSQO-9kWp7GRivLv-H_L2kEHt6RxdtQnxWdwRy3RpmMEBKLfEw5Ne1YOLGlgY-o7C5FwdeMqLtICwqQI5P_0hhzmOlvNvDOV5uQv7x45lcm9juu4czXCEhhoycpFkdNiHzjC-tSs50s8l6HU3x-uQU-U6h1dYf3coSW57DNq_516Yb1KAkjRlh0nsVdPCcZ6QQabyt5594JNFaAQcm_Rkf5rrMaCXjXp9hI0KX0plUWI0DdexaGmBGtf2EshsLZOfb5lykEjtURvPMmJoiCf8xYsoVtpwlUygVlTxVRJBeimUJ7bhDMcQBc0KCN-OP0I1SJDkAO27dMBA_b9NVvqVhbWRSiDyS7MjgbrbDbMc9gP4WjxK2BHr6JdsNTWTyfyZu4SwPE10LpUn0c7kZ2KRK8IHw
