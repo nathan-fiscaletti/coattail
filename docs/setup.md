@@ -30,6 +30,8 @@ You should now have the following file structure in your Coattail Instance direc
    - 🗃️ data.db ─── Local data storage.
    - 📄 service.log ─── Your service log file.
 
+## Running Database Migrations
+
 Once you have created the Coattail Instance, you will need to run Database Migrations to set up the Coattail Instances database for first time use.
 
 ![Run Database Migrations](./migrate.png)
@@ -43,5 +45,3 @@ Your Coattail Instance will need to be running in order for other peers to subsc
 You can check the status of your Coattial Service by running the following command:
 
 ![Coattail Service Status](./service-status.png)
-
-Once your service is running, you can start using it.
