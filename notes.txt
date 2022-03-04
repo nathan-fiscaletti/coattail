@@ -27,9 +27,9 @@ Separate receivers and actions
 Move verification key to it's own key?
 per peer notifications
 ?? Commands for Schemas ??
+$ coattail action schema --action --peer
 $ coattail token purge                                                 !! NEW !!
 move colors to class or consts
-move all config loads to cli index instead of commands
 
 
 Client -> Server: action, receiver

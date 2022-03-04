@@ -21,10 +21,18 @@ service:
 authentication:
   private_key:
     type: "file"
-    value: "{root}/keys/key.pem"
+    value: "{root}/keys/auth-key.pem"
   public_key:
     type: "file"
-    value: "{root}/keys/key.pub"
+    value: "{root}/keys/auth-key.pub"
+
+validation:
+  private_key:
+    type: "file"
+    value: "{root}/keys/vt-key.pem"
+  public_key:
+    type: "file"
+    value: "{root}/keys/vt-key.pub"
 
 data:
   client: "sqlite3"
