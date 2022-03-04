@@ -13,17 +13,7 @@ $ npm i -g coattail
 
 > You will need an empty directory in which to store your Coattail Instances files.
 
-```sh
-$ mkdir my-coattail-instance
-$ coattail new ./my-coattail-instance
-```
-
-Once you have created the Coattail Instance, you will need to run Database Migrations to set up the Coattail Instances database for first time use.
-
-```sh
-$ cd ./my-coattail-instance
-$ coattail data migrate latest
-```
+![Create New Coattail Instance](./new-instance.png)
 
 You should now have the following file structure in your Coattail Instance directory.
 
@@ -40,19 +30,18 @@ You should now have the following file structure in your Coattail Instance direc
    - 🗃️ data.db ─── Local data storage.
    - 📄 service.log ─── Your service log file.
 
+Once you have created the Coattail Instance, you will need to run Database Migrations to set up the Coattail Instances database for first time use.
+
+![Run Database Migrations](./migrate.png)
+
 ## Starting your Coattail Service
 
 Your Coattail Instance will need to be running in order for other peers to subscribe to it. You should ideally run your Coattail Instance in headless mode to keep it running in the background.
 
-```sh
-$ cd my-coattail-instance
-$ coattail service start --headless
-```
+![Start Coattail Service](./start-service.png)
 
 You can check the status of your Coattial Service by running the following command:
 
-```sh
-$ coattail service status
-```
+![Coattail Service Status](./service-status.png)
 
 Once your service is running, you can start using it.

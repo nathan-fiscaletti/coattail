@@ -4,6 +4,8 @@
 #e6d74e -- yellow
 #b0b0b0 -- gray
 
+console size 108x34
+
 module.exports = {
     Schemas: {}
 };
