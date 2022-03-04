@@ -1,21 +1,8 @@
-
-$ coattail token purge                                                 !! NEW !!
-
 #4e88e6 -- blue
 #e64e4e -- red
 #6ce64e -- green
 #e6d74e -- yellow
 #b0b0b0 -- gray
-
-# Actions
-$ coattail action queue \                                              !! NEW !!
-                  --peer <peer-id> \                                   !! NEW !!
-                  --action <action-id>|<action-name> \                 !! NEW !!
-                  --data <data>                                        !! NEW !!
-$ coattail action validate \                                           !! NEW !!
-                  --action <action-id>|<action-name>                   !! NEW !!
-
-?? Commands for Schemas ??                                             !! NEW !!
 
 module.exports = {
     Schemas: {}
@@ -27,6 +14,7 @@ File sync utility
 Data streaming from scratch
 Pick one encryption standard and implement it from scratch
 
+Update peer add to not allow duplicates
 Update subscription to not allow duplicates
 Double check error handling
 Validate receiver schema
@@ -37,6 +25,11 @@ Rate limitting
 Rename subscription token to publication token
 Separate receivers and actions
 Move verification key to it's own key?
+per peer notifications
+security warning for peers that do not use TLS
+?? Commands for Schemas ??
+$ coattail token purge                                                 !! NEW !!
+move colors to class or consts
 
 
 Client -> Server: action, receiver
