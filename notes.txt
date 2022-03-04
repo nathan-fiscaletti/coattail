@@ -26,7 +26,6 @@ Rename subscription token to publication token
 Separate receivers and actions
 Move verification key to it's own key?
 per peer notifications
-security warning for peers that do not use TLS
 ?? Commands for Schemas ??
 $ coattail token purge                                                 !! NEW !!
 move colors to class or consts
