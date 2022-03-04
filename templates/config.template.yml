@@ -6,9 +6,8 @@ paths:
 service:
   # TLS Configuration
   tls:
+    # TLS is not yet supported in Coattail.
     use_tls: false
-    # tls properties should be identical to those specified here:
-    # https://nodejs.org/api/tls.html#tlscreateserveroptions-secureconnectionlistener
   listen:
     # Address must be a valid IPv4 address. Hostnames are not supported.
     address: "127.0.0.1"
