@@ -17,7 +17,7 @@ $ npm i -g coattail
 
 You should now have the following file structure in your Coattail Instance directory.
 
-- 📂 __ct1__
+- 📂 __.__
    - 📂 __actions__ ─── Actions that this instance can perform.
    - 📂 __receivers__ ─── Receivers for incoming publications.
    - 📂 __schemas__ ─── Schemas for action/receiver I/O validation.
