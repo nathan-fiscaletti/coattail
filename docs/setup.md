@@ -27,20 +27,18 @@ $ coattail data migrate latest
 
 You should now have the following file structure in your Coattail Instance directory.
 
-```sh
-.
-├── actions            # <-- Actions that this instance can perform.
-├── receivers          # <-- Receivers for incoming publications.
-├── schemas            # <-- Schemas for action/receiver I/O validation.
-├── config.yml         # <-- Instance configuration.
-├── data.db            # <-- Local storage.
-├── keys               # <-- Signing keys.
-│   ├── auth-key.pem   # <-- Authentication private key.
-│   ├── auth-key.pub   # <-- Authentication public key.
-│   ├── vt-key.pem     # <-- Validation private key.
-│   └── vt-key.pub     # <-- Validation public key.
-└── service.log        # <-- Your service log file.
-```
+- 📂 __ct1__
+   - 📂 __actions__ ─── Actions that this instance can perform.
+   - 📂 __receivers__ ─── Receivers for incoming publications.
+   - 📂 __schemas__ ─── Schemas for action/receiver I/O validation.
+   - 📂 __keys__ ─── Signing keys.
+     - 🔑 auth\-key.pem ─── Authentication private key.
+     - 🔑 auth\-key.pub ─── Authentication public key.
+     - 🔑 vt\-key.pem ─── Validation private key.
+     - 🔑 vt\-key.pub ─── Validation public key.
+   - 📄 config.yml ─── Instance configuration.
+   - 🗃️ data.db ─── Local data storage.
+   - 📄 service.log ─── Your service log file.
 
 ## Starting your Coattail Service
 
