@@ -30,6 +30,7 @@ security warning for peers that do not use TLS
 ?? Commands for Schemas ??
 $ coattail token purge                                                 !! NEW !!
 move colors to class or consts
+move all config loads to cli index instead of commands
 
 
 Client -> Server: action, receiver
