@@ -24,7 +24,6 @@ Add an option to commands to have machine readable output              !! NEW !!
 Packet permissions based on opcode                                     !! NEW !!
 Rate limitting
 Rename subscription token to publication token
-Separate receivers and actions
 per peer notifications
 ?? Commands for Schemas ??
 $ coattail action schema --action --peer
