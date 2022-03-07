@@ -1,4 +1,4 @@
-module.exports = class extends require(`{ACTION_PATH}`) {
+module.exports = (Action) => class extends Action {
     constructor() {
         super({
             // Define schemas inline, or reference them by ID based on the
@@ -6,8 +6,20 @@ module.exports = class extends require(`{ACTION_PATH}`) {
             //
             // See https://github.com/tdegrunt/jsonschema for more information
             // on JSON schemas.
-            inputSchema: '/MyInputSchema',
-            outputSchema: '/MyOutputSchema'
+            inputSchema: {
+                type: 'object',
+                properties: {
+                    message: { type: 'string' }
+                },
+                required: ['message']
+            },
+            outputSchema: {
+                type: 'object',
+                properties: {
+                    message: { type: 'string' }
+                },
+                required: ['message']
+            }
         });
     }
 
@@ -17,6 +29,6 @@ module.exports = class extends require(`{ACTION_PATH}`) {
         // 1. Response must match the outputSchema.
         // 2. Input has already been validated at this point, so you can expect
         //    it to match the inputSchema.
-        return {};
+        return input;
     }
 };

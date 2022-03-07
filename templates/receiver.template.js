@@ -1,4 +1,4 @@
-module.exports = class extends require(`{RECEIVER_PATH}`) {
+module.exports = (Receiver) => class extends Receiver {
     constructor() {
         super({
             // Define schemas inline, or reference them by ID based on the
@@ -6,7 +6,13 @@ module.exports = class extends require(`{RECEIVER_PATH}`) {
             //
             // See https://github.com/tdegrunt/jsonschema for more information
             // on JSON schemas.
-            inputSchema: '/MyInputSchema'
+            inputSchema: {
+                type: 'object',
+                properties: {
+                    message: { type: 'string' }
+                },
+                required: ['message']
+            }
         });
     }
 
