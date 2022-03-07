@@ -20,13 +20,11 @@ Update peer add to not allow duplicates
 Update subscription to not allow duplicates
 Double check error handling
 Validate receiver schema
-Make authentication keypair different than validation keypair.
 Add an option to commands to have machine readable output              !! NEW !!
 Packet permissions based on opcode                                     !! NEW !!
 Rate limitting
 Rename subscription token to publication token
 Separate receivers and actions
-Move verification key to it's own key?
 per peer notifications
 ?? Commands for Schemas ??
 $ coattail action schema --action --peer
