@@ -26,6 +26,7 @@
     "jsonschema": "^1.4.0",
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.95.15",
+    "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "node-json-color-stringify": "^1.1.0",
     "sqlite3": "^5.0.2",

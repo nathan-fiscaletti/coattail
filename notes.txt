@@ -16,10 +16,10 @@ File sync utility
 Data streaming from scratch
 Pick one encryption standard and implement it from scratch
 
+update schema i/o to use fully dereferenced schemas
 Update peer add to not allow duplicates
 Update subscription to not allow duplicates
 Double check error handling
-Validate receiver schema
 Add an option to commands to have machine readable output              !! NEW !!
 Packet permissions based on opcode                                     !! NEW !!
 Rate limitting
