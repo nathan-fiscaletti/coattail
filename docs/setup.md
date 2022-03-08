@@ -20,7 +20,6 @@ You should now have the following file structure in your Coattail Instance direc
 - 📂 __.__
    - 📂 __actions__ ─── Actions that this instance can perform.
    - 📂 __receivers__ ─── Receivers for incoming publications.
-   - 📂 __schemas__ ─── Schemas for action/receiver I/O validation.
    - 📂 __keys__ ─── Signing keys.
      - 🔑 auth\-key.pem ─── Authentication private key.
      - 🔑 auth\-key.pub ─── Authentication public key.
@@ -29,6 +28,7 @@ You should now have the following file structure in your Coattail Instance direc
    - 📄 config.yml ─── Instance configuration.
    - 🗃️ data.db ─── Local data storage.
    - 📄 service.log ─── Your service log file.
+   - 📄 package.json ─── The package file for the Coattail instance.
 
 ## Running Database Migrations
 

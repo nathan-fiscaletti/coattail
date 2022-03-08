@@ -2,7 +2,6 @@ paths:
   root: "{root}"
   actions: "{root}/actions/"
   receivers: "{root}/receivers/"
-  schemas: "{root}/schemas/"
 
 service:
   # TLS Configuration
