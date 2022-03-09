@@ -28,3 +28,22 @@ $ coattail action schema --action --peer
 $ coattail token purge                                                 !! NEW !!
 move colors to class or consts
 get rid of paths module
+key rotation
+bind address was stupid like you thought it would be
+tls without hostname verification
+
+
+service:
+  # TLS Configuration
+  tls:
+    # TLS is not yet supported in Coattail.
+    use_tls: false
+  # The local address and port to bind to.
+  network:
+    address:
+      # The address that other peers should use to connect to this instance.
+      connection: "127.0.0.1"
+      # The address that this peer should bind to when setting up it's server.
+      listen: "127.0.0.1"
+    # The port to use.
+    port: 49365
