@@ -27,3 +27,4 @@ per peer notifications
 $ coattail action schema --action --peer
 $ coattail token purge                                                 !! NEW !!
 move colors to class or consts
+get rid of paths module
