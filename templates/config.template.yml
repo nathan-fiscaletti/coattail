@@ -12,11 +12,9 @@ service:
   network:
     address:
       # The address that other peers should use to connect to this instance.
-      inbound: "127.0.0.1"
-      # The address that other peers will see when this peer connects to them.
-      outbound: "127.0.0.1"
+      connection: "127.0.0.1"
       # The address that this peer should bind to when setting up it's server.
-      listen: "127.0.0.1"
+      bind: "127.0.0.1"
     # The port to use.
     port: 49365
   # How frequently to ask clients to send keep-alive packets.
