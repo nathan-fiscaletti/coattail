@@ -32,7 +32,7 @@ key rotation
 bind address was stupid like you thought it would be
 tls without hostname verification
 
-if can't connect to subscriber, notify gets hung
+unsubscribe functionality
 remove keep alive functionality and instead rely on keepalive in socket options
 see: https://nodejs.org/api/net.html#socketconnectoptions-connectlistener
 
