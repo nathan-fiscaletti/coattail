@@ -32,6 +32,10 @@ key rotation
 bind address was stupid like you thought it would be
 tls without hostname verification
 
+if can't connect to subscriber, notify gets hung
+remove keep alive functionality and instead rely on keepalive in socket options
+see: https://nodejs.org/api/net.html#socketconnectoptions-connectlistener
+
 
 service:
   # TLS Configuration
@@ -44,6 +48,6 @@ service:
       # The address that other peers should use to connect to this instance.
       connection: "127.0.0.1"
       # The address that this peer should bind to when setting up it's server.
-      listen: "127.0.0.1"
+      bind: "127.0.0.1"
     # The port to use.
     port: 49365
