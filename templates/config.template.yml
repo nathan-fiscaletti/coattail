@@ -17,8 +17,6 @@ service:
       bind: "127.0.0.1"
     # The port to use.
     port: 49365
-  # How frequently to ask clients to send keep-alive packets.
-  keep_alive_interval: 2000
   # The session ID factory to use, can be either `uuid` or `incremental`.
   session_id_factory: 'uuid'
   log: "{root}/service.log"
