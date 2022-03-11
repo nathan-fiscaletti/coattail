@@ -18,37 +18,15 @@ Pick one encryption standard and implement it from scratch
 
 Update peer add to not allow duplicates
 Update subscription to not allow duplicates
-Double check error handling
 fix tables when output is plain or json
 Rate limitting
-Rename subscription token to publication token
 per peer notifications
 ?? Commands for Schemas ??
 $ coattail action schema --action --peer
 $ coattail token purge                                                 !! NEW !!
 move colors to class or consts
-get rid of paths module
 key rotation
-bind address was stupid like you thought it would be
 tls without hostname verification
-
 service stop command based on pwd
 non-headless coattail instances in service status don't show instance path
 unsubscribe functionality
-remove keep alive functionality and instead rely on keepalive in socket options
-see: https://nodejs.org/api/net.html#socketconnectoptions-connectlistener
-
-service:
-  # TLS Configuration
-  tls:
-    # TLS is not yet supported in Coattail.
-    use_tls: false
-  # The local address and port to bind to.
-  network:
-    address:
-      # The address that other peers should use to connect to this instance.
-      connection: "127.0.0.1"
-      # The address that this peer should bind to when setting up it's server.
-      bind: "127.0.0.1"
-    # The port to use.
-    port: 49365
