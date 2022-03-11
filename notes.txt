@@ -37,7 +37,6 @@ non-headless coattail instances in service status don't show instance path
 unsubscribe functionality
 remove keep alive functionality and instead rely on keepalive in socket options
 see: https://nodejs.org/api/net.html#socketconnectoptions-connectlistener
-rework subscriptions and move them to their own database as they should be,
 
 service:
   # TLS Configuration
