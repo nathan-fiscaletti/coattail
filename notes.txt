@@ -1,32 +1,32 @@
-#4e88e6 -- blue
-#e64e4e -- red
-#6ce64e -- green
-#e6d74e -- yellow
-#b0b0b0 -- gray
+Note:
 
-console size 108x34
+  #4e88e6 -- blue
+  #e64e4e -- red
+  #6ce64e -- green
+  #e6d74e -- yellow
+  #b0b0b0 -- gray
 
-module.exports = {
-    Schemas: {}
-};
+  screenshot console size 108x34
+
+To Do:
+
+  Update peer add to not allow duplicates
+  Update subscription to not allow duplicates
+  fix tables when output is plain or json
+  Rate limitting
+  per peer notifications
+  ?? Commands for Schemas ??
+  $ coattail action schema --action --peer
+  $ coattail token purge
+  move colors to class or consts
+  key rotation
+  tls without hostname verification
+  service stop command based on pwd
+  non-headless coattail instances in service status don't show instance path
+  unsubscribe functionality
 
 Other Project Ideas:
 
-File sync utility
-Data streaming from scratch
-Pick one encryption standard and implement it from scratch
-
-Update peer add to not allow duplicates
-Update subscription to not allow duplicates
-fix tables when output is plain or json
-Rate limitting
-per peer notifications
-?? Commands for Schemas ??
-$ coattail action schema --action --peer
-$ coattail token purge                                                 !! NEW !!
-move colors to class or consts
-key rotation
-tls without hostname verification
-service stop command based on pwd
-non-headless coattail instances in service status don't show instance path
-unsubscribe functionality
+  File sync utility
+  Data streaming from scratch
+  Pick one encryption standard and implement it from scratch
