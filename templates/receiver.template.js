@@ -1,4 +1,4 @@
-module.exports = (Receiver) => class extends Receiver {
+module.exports = (Coattail) => class extends Coattail.Receiver {
     async onReceived(input) {
         // Handle input
     }

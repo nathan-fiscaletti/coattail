@@ -15,16 +15,13 @@ To Do:
   fix tables when output is plain or json
   Rate limitting
   per peer notifications
-  ?? Commands for Schemas ??
-  $ coattail action schema --action --peer
-  $ coattail token purge
   move colors to class or consts
   key rotation
   tls without hostname verification
   service stop command based on pwd
   non-headless coattail instances in service status don't show instance path
   unsubscribe functionality
-  add access to coattail api
+  transmit log messages when remotely executing an action
 
 Other Project Ideas:
 
