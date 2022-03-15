@@ -6,7 +6,7 @@ paths:
 service:
   # TLS Configuration
   tls:
-    use_tls: false
+    enabled: false
     key: '/absolute/path/to/key.pem'
     cert: '/absolute/path/to/cert.pem'
   # The local address and port to bind to.

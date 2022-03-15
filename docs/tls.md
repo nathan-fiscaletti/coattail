@@ -26,7 +26,7 @@ $ rm server-csr.pem
 ```yml
 service:
   tls:
-    use_tls: true
+    enabled: true
     key: '/absolute/path/to/server-key.pem'
     cert: '/absolute/path/to/server-cert.pem'
 ```
