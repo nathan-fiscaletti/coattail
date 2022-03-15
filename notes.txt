@@ -24,6 +24,7 @@ To Do:
   service stop command based on pwd
   non-headless coattail instances in service status don't show instance path
   unsubscribe functionality
+  add access to coattail api
 
 Other Project Ideas:
 
