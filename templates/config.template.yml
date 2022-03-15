@@ -6,8 +6,9 @@ paths:
 service:
   # TLS Configuration
   tls:
-    # TLS is not yet supported in Coattail.
     use_tls: false
+    key: '/absolute/path/to/key.pem'
+    cert: '/absolute/path/to/cert.pem'
   # The local address and port to bind to.
   network:
     address:

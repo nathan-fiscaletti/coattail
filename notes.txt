@@ -17,7 +17,6 @@ To Do:
   per peer notifications
   move colors to class or consts
   key rotation
-  tls without hostname verification
   service stop command based on pwd
   non-headless coattail instances in service status don't show instance path
   unsubscribe functionality
