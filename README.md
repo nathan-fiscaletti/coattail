@@ -4,7 +4,16 @@ Coattail is a secure [peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer) 
 
 It's intention is to provide a generic publication mechanism in which subscribers can utilize the publication data in anyway they see fit, including chaining the publication into their own publication.
 
-### Installation
+## Features
+
+- Peer-to-peer architecture providing a decentralized base for communication.
+- Easy to use data manipulation, publication and subscription.
+- Secure permission driven remote publication triggering on peered instances.
+- Modern command line interface for managing instances.
+- Support for secure signature based packet source verification.
+- Support for TLS providing a secure tunnel with end-to-end encryption for data transport.
+
+## Installation
 
 ```sh
 git clone https://github.com/nathan-fiscaletti/coattail.git
@@ -14,7 +23,7 @@ npm i -g .
 # the coattail command should now be available
 ```
 
-### General Use Case
+## General Use Case
 
 ```mermaid
 sequenceDiagram
