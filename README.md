@@ -6,13 +6,15 @@ It's intention is to provide a generic publication mechanism in which subscriber
 
 ## Features
 
-- Peer-to-peer architecture providing a decentralized base for communication.
-- Easy to use data manipulation, publication and subscription.
-- Modern command line interface for managing instances.
-- Secure permission driven remote publication triggering on peered instances.
-- Subscription based publication chaining.
-- Support for secure signature based packet source verification.
-- Support for TLS providing a secure tunnel with end-to-end encryption for data transport.
+|Feature|Documentation|
+|---|---|
+|Peer-to-peer architecture providing a decentralized base for communication.|[Coattail Architecture](./docs/architecture.md)|
+|Easy to use data manipulation, publication and subscription.|[Subscriptions](./docs/architecture.md)|
+|Modern command line interface for managing instances.|[CLI Usage](./docs/cli.md)|
+|Secure permission driven remote publication triggering on peered instances.|[Tokens](./docs/tokens.md)|
+|Subscription based publication chaining.|[Publishing](./docs/publishing.md)|
+|Support for secure signature based packet source verification.|[Validation Tokens](./docs/vts.md)|
+|Support for TLS providing a secure tunnel with end-to-end encryption for data transport.|[TLS](./docs/tls.md)|
 
 ## Installation
 
