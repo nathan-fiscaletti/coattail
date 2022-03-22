@@ -34,7 +34,7 @@ sequenceDiagram
 
     Note over Subscriber: Validate Subscription
     Note over Subscriber: Delete VT
-    Note over Subscriber: Delete Sub Token
+    Note over Subscriber: Delete Subscription
 
     Subscriber ->> Publisher: Notify Unsubscribe
 
