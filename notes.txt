@@ -10,7 +10,8 @@ Note:
 
 To Do:
 
-  Unsubscribe functionality
+  Unsubscribe functionality from host
+  Cascade delete for Peer, Token, etc.
   Move all tokens to one database table with a type field
   fix tables when output is plain or json
   Rate limitting
@@ -20,6 +21,7 @@ To Do:
   service stop command based on pwd
   non-headless coattail instances in service status don't show instance path
   transmit log messages when remotely executing an action
+  What happens if subscriber is down? Will it hold up other publications?
 
 Other Project Ideas:
 
