@@ -8,8 +8,9 @@ It's intention is to provide a generic publication mechanism in which subscriber
 
 - Peer-to-peer architecture providing a decentralized base for communication.
 - Easy to use data manipulation, publication and subscription.
-- Secure permission driven remote publication triggering on peered instances.
 - Modern command line interface for managing instances.
+- Secure permission driven remote publication triggering on peered instances.
+- Subscription based publication chaining.
 - Support for secure signature based packet source verification.
 - Support for TLS providing a secure tunnel with end-to-end encryption for data transport.
 
