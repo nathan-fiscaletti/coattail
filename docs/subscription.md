@@ -54,12 +54,12 @@ sequenceDiagram
     Note over Publisher: Validate Subscription
 
     par
+        Note over Publisher: Delete Subscription
+    and
         Publisher ->> Subscriber: Notify Subscription Revocation
         Note over Subscriber: Validate Subscription
         Note over Subscriber: Validate Permissions
         Note over Subscriber: Delete VT
         Note over Subscriber: Delete Subscription
-    and
-        Note over Publisher: Delete Subscription
     end
 ```
