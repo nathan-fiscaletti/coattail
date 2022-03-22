@@ -11,7 +11,7 @@ Note:
 To Do:
 
   Cascade delete for Peer, Token, etc.
-  Delete subscripton on failed auth during notify?
+  Delete subscripton on failed auth during notify
   Move all tokens to one database table with a type field
   fix tables when output is plain or json
   Rate limitting
