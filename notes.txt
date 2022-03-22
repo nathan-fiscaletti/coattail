@@ -10,8 +10,8 @@ Note:
 
 To Do:
 
-  Update peer add to not allow duplicates
-  Update subscription to not allow duplicates
+  Unsubscribe functionality
+  Move all tokens to one database table with a type field
   fix tables when output is plain or json
   Rate limitting
   per peer notifications
@@ -19,7 +19,6 @@ To Do:
   key rotation
   service stop command based on pwd
   non-headless coattail instances in service status don't show instance path
-  unsubscribe functionality
   transmit log messages when remotely executing an action
 
 Other Project Ideas:
