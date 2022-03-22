@@ -12,10 +12,10 @@ sequenceDiagram
     Note over Publisher: Validate Subscribable
     Note over Publisher: Validate Duplicate
     Note over Publisher: Validate Action
-    Note over Publisher: Issue Validation Token
-    Publisher ->> Subscriber: Request Subscription Token using Validation Token & Authentication Token ID
-    Note over Subscriber: Save Validation Token
-    Note over Subscriber: Issue Subscription Token with Validation Token ID
+    Note over Publisher: Issue Validation
+    Publisher ->> Subscriber: Request Subscription Token using Validation & Authentication Token ID
+    Note over Subscriber: Save Validation
+    Note over Subscriber: Issue Subscription
     Subscriber ->> Publisher: Respond with Subscription Token and Subscription Token ID
     Note over Publisher: Save Subscription
     Publisher ->> Subscriber: Terminate Success with Subscription Token ID
