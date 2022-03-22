@@ -32,9 +32,9 @@ sequenceDiagram
     participant Publisher
     participant Subscriber
 
-    Note over Subscriber: Validate Subscription Exists
-    Note over Subscriber: Delete Validation Token
-    Note over Subscriber: Delete Subscription Token
+    Note over Subscriber: Validate Subscription
+    Note over Subscriber: Delete VT
+    Note over Subscriber: Delete Sub Token
 
     Subscriber ->> Publisher: Notify Unsubscribe
 
@@ -55,10 +55,10 @@ sequenceDiagram
 
     par
         Publisher ->> Subscriber: Notify Subscription Revocation
-        Note over Subscriber: Validate Subscription Token
+        Note over Subscriber: Validate Subscription
         Note over Subscriber: Validate Permissions
-        Note over Subscriber: Delete Validation Tokens
-        Note over Subscriber: Delete Subscription Token
+        Note over Subscriber: Delete VT
+        Note over Subscriber: Delete Subscription
     and
         Note over Publisher: Delete Subscription
     end
