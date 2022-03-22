@@ -8,7 +8,7 @@ It's intention is to allow users to subscribe to the results of actions being pe
 ```sh
 git clone https://github.com/nathan-fiscaletti/coattail.git
 cd coattail
-npm i -g
+npm i -g .
 
 # the coattail command should now be available
 ```
