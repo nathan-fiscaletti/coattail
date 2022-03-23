@@ -43,7 +43,7 @@ $ npm i -g coattail
 
 You should now have the following file structure in your Coattail Instance directory.
 
-- 📂 __.__
+- 📂 __my-coattail-instance__
    - 📂 __actions__ ─── Actions that this instance can perform.
    - 📂 __receivers__ ─── Receivers for incoming publications.
    - 📂 __keys__ ─── Signing keys.
