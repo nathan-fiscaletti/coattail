@@ -62,7 +62,7 @@ Once you have created the Coattail Instance, you will need to run Database Migra
 
 ![Run Database Migrations](./docs/images/migrate.png)
 
-### Starting your Coattail Service
+### Managing your Coattail Service
 
 Your Coattail Instance will need to be running in order for other peers to subscribe to it. You should ideally run your Coattail Instance in headless mode to keep it running in the background.
 
