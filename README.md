@@ -2,6 +2,8 @@
     <img src="./logo.png" />
 </p>
 
+## Coattail
+
 Coattail is a secure [peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer) remote execution and queueless [pub/sub](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) service. It's intention is to provide a generic publication mechanism in which subscribers can utilize the publication data in anyway they see fit.
 
 ## Installation
