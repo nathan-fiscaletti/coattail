@@ -47,8 +47,6 @@ This quick guide will walk you through creating your first Coattail instance and
 
 ### Initializing a Coattail Instance
 
-![New Instance](./docs/images/new-instance.png)
-
 > You will need an empty directory in which to store your Coattail Instances files.
 
 ```sh
