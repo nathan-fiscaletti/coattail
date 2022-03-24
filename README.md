@@ -113,6 +113,8 @@ Before you can enable TLS, you will need to generate a Certificate and Key. You 
 
 It is important that when generating your certificate you provide the **Issuer Hash** from your Coattail instance for the "Common Name" (_CN_).
 
+![Token Issuer](./docs/images/issuer.png)
+
 ```sh
 # Retrieve the issuer hash
 # This will be used for the CN value in your certificate
