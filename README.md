@@ -94,3 +94,55 @@ You can check the status of your Coattail instance (along with any other Coattai
 ```sh
 $ coattail service status
 ```
+
+You can stop a Coattail instance by determining the PID for the service using (this is listed in the output of the `status` command above) and passing it to the following command.
+
+```sh
+$ coattail service stop <pid>
+```
+
+### Configuring TLS
+
+By default Coattail runs over plain TCP/IP. Coattial is most secure when running over TCP/IP with TLS. You can enable TLS in your instances `config.yml` file.
+
+> See the [Configuration](#configuration) section for more information on Configuring your Coattail instance.
+#### Generating Certificate & Key
+
+Before you can enable TLS, you will need to generate a Certificate and Key. You can generate the certificate and key by executing the commands below.
+
+It is important that when generating your certificate you provide the **Issuer Hash** from your Coattail instance for theh "Common Name" (_CN_).
+
+```sh
+# Retrieve the issuer hash
+# This will be used for the CN value in your certificate
+$ coattail token issuer
+
+# Generate the key
+$ openssl genrsa -out server-key.pem 1024
+
+# Generate a CSR for the certificate
+# Make sure to use the issuer hash for the Common Name (CN)
+$ openssl req -new -key server-key.pem -out server-csr.pem
+
+# Generate the certificate
+$ openssl x509 -req -in server-csr.pem -signkey server-key.pem -out server-cert.pem
+
+# Remove the CSR as we no longer need it.
+$ rm server-csr.pem
+```
+
+#### Configuring Instance
+
+Once you have the keys, you will need to open your instances `config.yml` file and configure the `service.tls` section as written below. Be sure to use the absolute paths to your certificate and key files.
+
+```yml
+service:
+  tls:
+    enabled: true
+    key: '/absolute/path/to/server-key.pem'
+    cert: '/absolute/path/to/server-cert.pem'
+```
+
+Once it has been configured, make sure that you restart your Coattail Instances service if it is already running.
+
+> Any tokens issued before you modify the service section of your configuration will cease to function with your Coattail instance. It's recommended that you configure your instance before issuing any tokens.
