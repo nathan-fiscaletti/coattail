@@ -37,7 +37,7 @@ Coattail is primarily a command-line application. You can install Coattail via t
 $ npm i -g coattail
 ```
 
-Once completed, the Coattail command will be available from your CLI. You can verify that the installation was successful by attempting to run the `coattail` command. You should see the following output.
+Once completed, the Coattail command will be available globally on your system. You can verify that the installation was successful by attempting to run the `coattail` command. You should see the following output.
 
 ![Install Success](./docs/images/install-success.png)
 
