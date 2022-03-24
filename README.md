@@ -8,7 +8,7 @@ Coattail is a secure [peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer) 
 
 ![Preview](./docs/images//preview.gif)
 
-## Index
+# Index
 
 - [Features](#features)
 - [Installing Coattail](#installing-coattail)
@@ -17,7 +17,7 @@ Coattail is a secure [peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer) 
   - [Running Database Migrations](#running-database-migrations)
   - [Managing your Coattail Service](#managing-your-coattail-service)
 
-## Features
+# Features
 
 |Feature|Documentation|
 |---|---|
@@ -29,7 +29,7 @@ Coattail is a secure [peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer) 
 |Support for secure signature based packet source verification.|[Validation Tokens](./docs/vts.md)|
 |Support for TLS providing a secure tunnel with end-to-end encryption for data transport.|[TLS](./docs/tls.md)|
 
-## Installing Coattail
+# Installing Coattail
 
 Coattail is primarily a command-line application. You can install Coattail via the [Node Package Manager](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm). Provided you have the Node Pakcage Manager installed, you can run the following command to install Coattail.
 
@@ -41,11 +41,11 @@ Once completed, the Coattail command will be available from your CLI. You can ve
 
 ![Install Success](./docs/images/install-success.png)
 
-## Getting started
+# Getting started
 
 This quick guide will walk you through creating your first Coattail instance and initializing it for first time use. It includes creating the Coattail instance, running it's database Migrations and starting it's core service.
 
-### Initializing a Coattail Instance
+## Initializing a Coattail Instance
 
 > You will need an empty directory in which to store your Coattail Instances files.
 
@@ -71,7 +71,7 @@ my-coattail-instance/
 └── service.log        # Your service log file.
 ```
 
-### Running Database Migrations
+## Running Database Migrations
 
 Once you have created the Coattail Instance, you will need to run Database Migrations to set up the Coattail Instances database for first time use. This database is used to store information about registered peers, issued tokens, subscriptions and other types of persistent data used by the Coattail instance.
 
@@ -81,7 +81,7 @@ To run the database migrations, navigate to your Coattail Instance and run the f
 $ coattail data migrate latest
 ```
 
-### Managing your Coattail service
+## Managing your Coattail service
 
 Your Coattail Instance will need to be running in order to communicate with peering Coattail instances. You should ideally run your Coattail Instance in headless mode to keep it running in the background. To start your coattail instance, navigate to your Coattail instance and run the following command.
 
