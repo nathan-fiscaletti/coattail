@@ -146,6 +146,6 @@ service:
     cert: '/absolute/path/to/server-cert.pem'
 ```
 
-Once it has been configured, make sure that you restart your Coattail Instances service if it is already running.
+Once it has been configured, make sure that you restart your Coattail Instances service if it is already running. See [Managing your Coattail service](#managing-your-coattail-service) for more information on starting/stopping your Coattail service.
 
 > Any tokens issued before you modify the service section of your configuration will cease to function with your Coattail instance. It's recommended that you configure your instance before issuing any tokens.
