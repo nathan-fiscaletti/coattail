@@ -75,14 +75,22 @@ my-coattail-instance/
 
 Once you have created the Coattail Instance, you will need to run Database Migrations to set up the Coattail Instances database for first time use. This database is used to store information about registered peers, issued tokens, subscriptions and other types of persistent data used by the Coattail instance.
 
-![Run Database Migrations](./docs/images/migrate.png)
+To run the database migrations, navigate to your Coattail Instance and run the following command.
+
+```sh
+$ coattail data migrate latest
+```
 
 ### Managing your Coattail service
 
-Your Coattail Instance will need to be running in order for other peers to subscribe to it. You should ideally run your Coattail Instance in headless mode to keep it running in the background.
+Your Coattail Instance will need to be running in order to communicate with peering Coattail instances. You should ideally run your Coattail Instance in headless mode to keep it running in the background. To start your coattail instance, navigate to your Coattail instance and run the following command.
 
-![Start Coattail Service](./docs/images/start-service.png)
+```sh
+$ coattail service start --headless
+```
 
-You can check the status of your Coattial Service by running the following command:
+You can check the status of your Coattail instance (along with any other Coattail instance running on the system) by navigating to any Coattail instance and running the following command.
 
-![Coattail Service Status](./docs/images/service-status.png)
+```sh
+$ coattail service status
+```
