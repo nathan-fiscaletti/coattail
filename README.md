@@ -21,6 +21,8 @@
   </a>
 </p>
 
+![Preview](./docs/images//preview.gif)
+
 # Coattail
 
 Coattail is a secure [peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer) remote execution and data publication service. It's intention is to provide a generic publication mechanism in which subscribers can utilize the publication data in anyway they see fit by means of implementing receivers in small code modules.
