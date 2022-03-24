@@ -15,7 +15,7 @@ Coattail is a secure [peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer) 
 - [Getting started](#getting-started)
   - [Initializing a Coattail Instance](#initializing-a-coattail-instance)
   - [Running Database Migrations](#running-database-migrations)
-  - [Managing youru Coattail Service](#managing-your-coattail-service)
+  - [Managing your Coattail Service](#managing-your-coattail-service)
 
 ## Features
 
