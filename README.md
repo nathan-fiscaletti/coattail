@@ -27,16 +27,19 @@ Coattail is a secure [peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer) 
 |Support for secure signature based packet source verification.|[Validation Tokens](./docs/vts.md)|
 |Support for TLS providing a secure tunnel with end-to-end encryption for data transport.|[TLS](./docs/tls.md)|
 
-## Getting started
+## Installing Coattail
 
-### Installing Coattail
+Coattail is primarily a command-line application. You can install Coattail via the [Node Package Manager](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm). Provided you have the Node Pakcage Manager installed, you can run the following command to install Coattail.
 
-You will first need to install Coattail. Provided you already have [Node.js/npm](https://nodejs.org/en/download/) installed, installing Coattail is effortless.
-
-Simply run the following command:
 ```sh
 $ npm i -g coattail
 ```
+
+Once completed, the Coattail command will be available from your CLI. You can verify that the installation was successful by attempting to run the `coattail` command. You should see the following output.
+
+![Install Success](./docs/images/install-success.png)
+
+## Getting started
 
 ### Initializing a Coattail Instance
 
