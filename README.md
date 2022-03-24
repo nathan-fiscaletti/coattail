@@ -101,12 +101,12 @@ You can stop a Coattail instance by determining the PID for the service using (t
 $ coattail service stop <pid>
 ```
 
-### Configuring TLS
+## Configuring TLS for your Coattail Instance
 
 By default Coattail runs over plain TCP/IP. Coattial is most secure when running over TCP/IP with TLS. You can enable TLS in your instances `config.yml` file.
 
 > See the [Configuration](#configuration) section for more information on Configuring other options in your Coattail instances `config.yml` file.
-#### Generating Certificate & Key
+### Generating Certificate & Key
 
 Before you can enable TLS, you will need to generate a Certificate and Key. You can generate the certificate and key by executing the commands below.
 
@@ -131,7 +131,7 @@ $ openssl x509 -req -in server-csr.pem -signkey server-key.pem -out server-cert.
 $ rm server-csr.pem
 ```
 
-#### Configuring Instance
+### Applying Certificate & Key
 
 Once you have the keys, you will need to open your instances `config.yml` file and configure the `service.tls` section as written below. Be sure to use the absolute paths to your certificate and key files.
 
