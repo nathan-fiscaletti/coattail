@@ -109,11 +109,11 @@ $ coattail service stop <pid>
 By default Coattail runs over plain TCP/IP. Coattial is most secure when running over TCP/IP with TLS. You can enable TLS in your instances `config.yml` file.
 ### Generating Certificate & Key
 
-Before you can enable TLS, you will need to generate a Certificate and Key. You can generate the certificate and key by executing the commands below.
-
-It is important that when generating your certificate you provide the **Issuer Hash** from your Coattail instance for the "Common Name" (_CN_).
+Before you can enable TLS, you will need to generate a Certificate and Key. It is important that when generating your certificate you provide the **Issuer Hash** from your Coattail instance for the "Common Name" (_CN_).
 
 ![Token Issuer](./docs/images/issuer.png)
+
+Once you've retrieved the issuer hash from your Coattail instance, you can generate the certificate and key using the following commands.
 
 ```sh
 # Retrieve the issuer hash
