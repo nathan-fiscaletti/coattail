@@ -58,7 +58,7 @@ You should now have the following file structure in your Coattail Instance direc
 
 ### Running Database Migrations
 
-Once you have created the Coattail Instance, you will need to run Database Migrations to set up the Coattail Instances database for first time use.
+Once you have created the Coattail Instance, you will need to run Database Migrations to set up the Coattail Instances database for first time use. This database is used to store information about registered peers, issued tokens, subscriptions and other types of persistent data used by the Coattail instance.
 
 ![Run Database Migrations](./docs/images/migrate.png)
 
