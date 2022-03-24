@@ -46,6 +46,21 @@ $ coattail new ./my-coattail-instance
 
 You should now have the following file structure in your Coattail Instance directory.
 
+```yaml
+my-coattail-instance/
+├── actions            # Actions that this instance can perform.
+├── receivers          # Receivers for incoming publications.
+├── keys               # Cryptographic keys
+│   ├── auth-key.pem   # Authentication private key.
+│   ├── auth-key.pub   # Authentication public key.
+│   ├── vt-key.pem     # Validation private key.
+│   └── vt-key.pub     # Validation public key.
+├── data.db            # Local data storage.
+├── package.json       # The npm package file for the Coattail instance.
+├── config.yml         # Instance configuration.
+└── service.log        # Your service log file.
+```
+
 - 📂 __my-coattail-instance__
    - 📂 __actions__ ─── Actions that this instance can perform.
    - 📂 __receivers__ ─── Receivers for incoming publications.
