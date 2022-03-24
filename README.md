@@ -30,7 +30,7 @@ Coattail is a secure [peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer) 
 |Secure permission driven remote execution on peered instances.|[Tokens](./docs/tokens.md)|
 |Subscription based publication chaining.|[Publishing](./docs/publishing.md)|
 |Support for secure signature based packet source verification.|[Validation Tokens](./docs/vts.md)|
-|Support for TLS providing a secure tunnel with end-to-end encryption for data transport.|[TLS](./docs/tls.md)|
+|Support for TLS providing a secure tunnel with end-to-end encryption for data transport.|[TLS](#configuring-tls-for-your-coattail-instance)|
 
 # Installing Coattail
 
