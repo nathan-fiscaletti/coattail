@@ -113,7 +113,7 @@ By default Coattail runs over plain TCP/IP. Coattial is most secure when running
 
 Before you can enable TLS, you will need to generate a Certificate and Key. You can generate the certificate and key by executing the commands below.
 
-It is important that when generating your certificate you provide the **Issuer Hash** from your Coattail instance for theh "Common Name" (_CN_).
+It is important that when generating your certificate you provide the **Issuer Hash** from your Coattail instance for the "Common Name" (_CN_).
 
 ```sh
 # Retrieve the issuer hash
