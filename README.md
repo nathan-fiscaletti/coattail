@@ -24,7 +24,15 @@ $ npm i -g coattail
 |Support for secure signature based packet source verification.|[Validation Tokens](./docs/vts.md)|
 |Support for TLS providing a secure tunnel with end-to-end encryption for data transport.|[TLS](./docs/tls.md)|
 
-## Getting Started
+## Index
+
+- [Getting started](#getting-started)
+  - [Installing Coattail](#installing-coattail)
+  - [Initializing a Coattail Instance](#initializing-a-coattail-instance)
+  - [Running Database Migrations](#running-database-migrations)
+  - [Managing youru Coattail Service](#managing-your-coattail-service)
+
+## Getting started
 
 ### Installing Coattail
 
@@ -35,7 +43,7 @@ Simply run the following command:
 $ npm i -g coattail
 ```
 
-### Creating a new Coattail Instance
+### Initializing a Coattail Instance
 
 ![New Instance](./docs/images/new-instance.png)
 
@@ -69,7 +77,7 @@ Once you have created the Coattail Instance, you will need to run Database Migra
 
 ![Run Database Migrations](./docs/images/migrate.png)
 
-### Managing your Coattail Service
+### Managing your Coattail service
 
 Your Coattail Instance will need to be running in order for other peers to subscribe to it. You should ideally run your Coattail Instance in headless mode to keep it running in the background.
 
