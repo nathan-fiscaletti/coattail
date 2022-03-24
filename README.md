@@ -6,11 +6,14 @@
 
 Coattail is a secure [peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer) remote execution and data publication service. It's intention is to provide a generic publication mechanism in which subscribers can utilize the publication data in anyway they see fit by means of implementing receivers in small code modules.
 
-## Installation
+## Index
 
-```sh
-$ npm i -g coattail
-```
+- [Features](#features)
+- [Getting started](#getting-started)
+  - [Installing Coattail](#installing-coattail)
+  - [Initializing a Coattail Instance](#initializing-a-coattail-instance)
+  - [Running Database Migrations](#running-database-migrations)
+  - [Managing youru Coattail Service](#managing-your-coattail-service)
 
 ## Features
 
@@ -23,14 +26,6 @@ $ npm i -g coattail
 |Subscription based publication chaining.|[Publishing](./docs/publishing.md)|
 |Support for secure signature based packet source verification.|[Validation Tokens](./docs/vts.md)|
 |Support for TLS providing a secure tunnel with end-to-end encryption for data transport.|[TLS](./docs/tls.md)|
-
-## Index
-
-- [Getting started](#getting-started)
-  - [Installing Coattail](#installing-coattail)
-  - [Initializing a Coattail Instance](#initializing-a-coattail-instance)
-  - [Running Database Migrations](#running-database-migrations)
-  - [Managing youru Coattail Service](#managing-your-coattail-service)
 
 ## Getting started
 
