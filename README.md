@@ -41,6 +41,8 @@ Once completed, the Coattail command will be available from your CLI. You can ve
 
 ## Getting started
 
+This quick guide will walk you through creating your first Coattail instance and initializing it for first time use. It includes creating the Coattail instance, running it's database Migrations and starting it's core service.
+
 ### Initializing a Coattail Instance
 
 ![New Instance](./docs/images/new-instance.png)
