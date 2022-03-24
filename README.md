@@ -16,7 +16,7 @@ Coattail is a secure [peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer) 
   - [Initializing a Coattail Instance](#initializing-a-coattail-instance)
   - [Running Database Migrations](#running-database-migrations)
   - [Managing your Coattail Service](#managing-your-coattail-service)
-- [Configuring TLS for your Coattail Instance](#configuring-tls-for-your-coattail-instance)
+- [Configuring TLS for your Coattail Service](#configuring-tls-for-your-coattail-service)
   - [Generating Certificate & Key](#generating-certificate--key)
   - [Applying Certificate & Key](#applying-certificate--key)
 
@@ -30,7 +30,7 @@ Coattail is a secure [peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer) 
 |Secure permission driven remote execution on peered instances.|[Tokens](./docs/tokens.md)|
 |Subscription based publication chaining.|[Publishing](./docs/publishing.md)|
 |Support for secure signature based packet source verification.|[Validation Tokens](./docs/vts.md)|
-|Support for TLS providing a secure tunnel with end-to-end encryption for data transport.|[TLS](#configuring-tls-for-your-coattail-instance)|
+|Support for TLS providing a secure tunnel with end-to-end encryption for data transport.|[TLS](#configuring-tls-for-your-coattail-service)|
 
 # Installing Coattail
 
@@ -104,7 +104,7 @@ You can stop a Coattail instance by determining the PID for the service using (t
 $ coattail service stop <pid>
 ```
 
-## Configuring TLS for your Coattail Instance
+## Configuring TLS for your Coattail Service
 
 By default Coattail runs over plain TCP/IP. Coattial is most secure when running over TCP/IP with TLS. You can enable TLS in your instances `config.yml` file.
 
