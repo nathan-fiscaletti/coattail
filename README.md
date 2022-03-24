@@ -134,6 +134,8 @@ $ openssl x509 -req -in server-csr.pem -signkey server-key.pem -out server-cert.
 $ rm server-csr.pem
 ```
 
+> I recommend you place this key and certificate in the `keys` directory of your Coattail instance alongside the other cryptographic keys used by the instance.
+
 ### Applying Certificate & Key
 
 Once you have the keys, you will need to open your instances `config.yml` file and configure the `service.tls` section as written below. Be sure to use the absolute paths to your certificate and key files.
