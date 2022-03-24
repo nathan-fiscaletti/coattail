@@ -37,6 +37,8 @@ $ npm i -g coattail
 
 ### Creating a new Coattail Instance
 
+![New Instance](./docs/images/new-instance.png)
+
 > You will need an empty directory in which to store your Coattail Instances files.
 
 ```sh
@@ -60,19 +62,6 @@ my-coattail-instance/
 ├── config.yml         # Instance configuration.
 └── service.log        # Your service log file.
 ```
-
-- 📂 __my-coattail-instance__
-   - 📂 __actions__ ─── Actions that this instance can perform.
-   - 📂 __receivers__ ─── Receivers for incoming publications.
-   - 📂 __keys__ ─── Signing keys.
-     - 🔑 auth\-key.pem ─── Authentication private key.
-     - 🔑 auth\-key.pub ─── Authentication public key.
-     - 🔑 vt\-key.pem ─── Validation private key.
-     - 🔑 vt\-key.pub ─── Validation public key.
-   - 📄 config.yml ─── Instance configuration.
-   - 🗃️ data.db ─── Local data storage.
-   - 📄 service.log ─── Your service log file.
-   - 📄 package.json ─── The package file for the Coattail instance.
 
 ### Running Database Migrations
 
