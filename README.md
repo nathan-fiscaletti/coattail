@@ -98,7 +98,7 @@ You can check the status of your Coattail instance (along with any other Coattai
 $ coattail service status
 ```
 
-You can stop a Coattail instance by determining the PID for the service using (this is listed in the output of the `status` command above) and passing it to the following command.
+You can stop a Coattail instance by determining the PID for the service (this is listed in the output of the `status` command above) and passing it to the following command.
 
 ```sh
 $ coattail service stop <pid>
