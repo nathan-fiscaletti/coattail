@@ -39,7 +39,10 @@ $ npm i -g coattail
 
 > You will need an empty directory in which to store your Coattail Instances files.
 
-![Create New Coattail Instance](./docs/images/new-instance.png)
+```sh
+$ mkdir my-coattail-instance
+$ coattail new ./my-coattail-instance
+```
 
 You should now have the following file structure in your Coattail Instance directory.
 
