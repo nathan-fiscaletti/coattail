@@ -4,6 +4,12 @@
 
 # Coattail
 
+[![Sponsor Me!](https://img.shields.io/badge/%F0%9F%92%B8-Sponsor%20Me!-blue)](https://github.com/sponsors/nathan-fiscaletti)
+[![Downloads](https://img.shields.io/npm/dw/schwab-api)](https://www.npmjs.com/package/schwab-api)
+[![GitHub stars](https://img.shields.io/github/stars/nathan-fiscaletti/schwab-api-js)](https://github.com/nathan-fiscaletti/schwab-api-js/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/nathan-fiscaletti/schwab-api-js)](https://github.com/nathan-fiscaletti/schwab-api-js/issues)
+[![GitHub license](https://img.shields.io/github/license/nathan-fiscaletti/schwab-api-js)](https://github.com/nathan-fiscaletti/schwab-api-js/blob/master/LICENSE)
+
 Coattail is a secure [peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer) remote execution and data publication service. It's intention is to provide a generic publication mechanism in which subscribers can utilize the publication data in anyway they see fit by means of implementing receivers in small code modules.
 
 ![Preview](./docs/images//preview.gif)
