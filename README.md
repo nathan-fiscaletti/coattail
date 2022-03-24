@@ -1,7 +1,6 @@
 <p align="center">
     <img src="./logo.png" />
 </p>
-<br /><br />
 
 # Coattail
 
