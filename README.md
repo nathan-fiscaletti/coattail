@@ -86,6 +86,24 @@ To run the database migrations, navigate to your Coattail Instance and run the f
 $ coattail data migrate latest
 ```
 
+# Managing Actions & Receivers
+
+The basic purpose of Coattail revolves around Actions and Receivers. An action is a small module of code that can be executed on the instance. Once completed, the results of this action can optionally be published. When published, other Coattail instances that have subscribed to the particular Action on this instance will be notified of the resulting data. When notified, these subscriptions are processed by Receivers.
+
+```mermaid
+sequenceDiagram
+    autonumber
+
+    participant Publisher
+    participant Action
+    participant Subscriber
+    participant Receiver
+
+    Publisher ->> Action: Perform Action
+    Publisher ->> Subscriber: Publish Result
+    Subscriber ->> Receiver: Handle Result
+```
+
 ## Managing your Coattail service
 
 Your Coattail Instance will need to be running in order to communicate with peering Coattail instances. You should ideally run your Coattail Instance in headless mode to keep it running in the background. To start your coattail instance, navigate to your Coattail instance and run the following command.
@@ -153,21 +171,3 @@ service:
 Once it has been configured, make sure that you restart your Coattail Instances service if it is already running. See [Managing your Coattail service](#managing-your-coattail-service) for more information on starting/stopping your Coattail service.
 
 > Any tokens issued before you modify the service section of your configuration will cease to function with your Coattail instance. It's recommended that you configure your instance before issuing any tokens.
-
-# Managing Actions & Receivers
-
-The basic purpose of Coattail revolves around Actions and Receivers. An action is a small module of code that can be executed on the instance. Once completed, the results of this action can optionally be published. When published, other Coattail instances that have subscribed to the particular Action on this instance will be notified of the resulting data. When notified, these subscriptions are processed by Receivers.
-
-```mermaid
-sequenceDiagram
-    autonumber
-
-    participant Publisher
-    participant Action
-    participant Subscriber
-    participant Receiver
-
-    Publisher ->> Action: Perform Action
-    Publisher ->> Subscriber: Publish Result
-    Subscriber ->> Receiver: Handle Result
-```
