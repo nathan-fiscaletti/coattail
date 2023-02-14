@@ -1,14 +1,14 @@
 paths:
-  root: "{root}"
-  actions: "{root}/actions/"
-  receivers: "{root}/receivers/"
+  root: {root}
+  actions: {actions}
+  receivers: {receivers}
 
 service:
   # TLS Configuration
   tls:
     enabled: false
-    key: '/absolute/path/to/key.pem'
-    cert: '/absolute/path/to/cert.pem'
+    key: /absolute/path/to/key.pem
+    cert: /absolute/path/to/cert.pem
   # The local address and port to bind to.
   network:
     address:
@@ -19,29 +19,29 @@ service:
     # The port to use.
     port: 49365
   # The session ID factory to use, can be either `uuid` or `incremental`.
-  session_id_factory: 'uuid'
-  log: "{root}/service.log"
+  session_id_factory: uuid
+  log: {log}
 
 authentication:
   private_key:
-    type: "file"
-    value: "{root}/keys/auth-key.pem"
+    type: file
+    value: {auth-key-priv}
   public_key:
-    type: "file"
-    value: "{root}/keys/auth-key.pub"
+    type: file
+    value: {auth-key-pub}
 
 validation:
   private_key:
-    type: "file"
-    value: "{root}/keys/vt-key.pem"
+    type: file
+    value: {validation-key-priv}
   public_key:
-    type: "file"
-    value: "{root}/keys/vt-key.pub"
+    type: file
+    value: {validation-key-pub}
 
 data:
-  client: "sqlite3"
+  client: sqlite3
   connection:
-    filename: "{dbfile}"
+    filename: {dbfile}
   migrations:
-    directory: "{install}/lib/data/migrations"
-    tableName: "knex_migrations"
+    directory: {migrations}
+    tableName: knex_migrations
