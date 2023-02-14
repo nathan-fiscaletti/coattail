@@ -10,6 +10,10 @@ Note:
 
 To Do:
 
+  Coattail Version Verification
+  Batched Publications
+  FIFO Actions?
+
   Cascade delete for Peer, Token, etc.
   Delete subscripton on failed auth during notify
   fix tables when output is plain or json
