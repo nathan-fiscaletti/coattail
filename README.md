@@ -39,6 +39,7 @@ Coattail is a secure [peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer) 
   - [Token Issuance](#token-issuance)
   - [Token Revocation](#token-revocation)
   - [Validation Tokens](#validation-tokens)
+- [Development Progress](#development-progress)
 
 # Installing Coattail
 
@@ -444,7 +445,7 @@ You can further manage validation tokens on an _Issuing Coattail Instance_ using
 
 See `coattail validation --help` for more information.
 
-## Development Progress / TODO
+## Development Progress
 
 - [ ] Implement a rate limiting mechanism in the network protocol.
 - [ ] Cascade deletions for Peer, Token, etc.
