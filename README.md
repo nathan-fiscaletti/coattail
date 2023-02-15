@@ -443,3 +443,16 @@ The token that has been generated will now ONLY be authorized when used from the
 You can further manage validation tokens on an _Issuing Coattail Instance_ using the `list`, `show` and `remove` sub-commands under the `validation` command.
 
 See `coattail validation --help` for more information.
+
+## Development Progress / TODO
+
+- [ ] Implement a rate limiting mechanism in the network protocol.
+- [ ] Cascade deletions for Peer, Token, etc.
+- [ ] When notifying a subscriber, if the subscription token fails to authenticate, delete it.
+- [ ] Update UI to properly handle tables for plain / json output types.
+- [ ] Add support for "peer-specific" publications.
+- [ ] Add system for key rotation
+- [ ] Update `service stop` command to use PWD when no process-id is provided.
+- [ ] Bug: non-headless coattail instances in `service status` output don't show instance path.
+- [ ] Update remote execution to transmit log message back to remote executor.
+- [ ] Debug Task: Ensure that publications are not blocked when a subscriber is un-reachable.

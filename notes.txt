@@ -15,9 +15,9 @@ To Do:
   FIFO Actions?
 
   Cascade delete for Peer, Token, etc.
-  Delete subscripton on failed auth during notify
+  Delete subscription on failed auth during notify
   fix tables when output is plain or json
-  Rate limitting
+  Rate limiting
   per peer notifications
   move colors to class or consts
   key rotation
