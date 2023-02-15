@@ -23,12 +23,12 @@ Coattail is a secure [peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer) 
 
 |Feature|Documentation|
 |---|---|
-|Peer-to-peer architecture providing a decentralized base for communication.|[Coattail Architecture](./docs/architecture.md)|
-|Easy to use data manipulation, publication and subscription.|[Subscriptions](./docs/architecture.md)|
+|Peer-to-peer architecture providing a decentralized base for communication.|[Architecture](./docs/architecture.md)|
+|Easy to use data manipulation, publication and subscription.|[Subscriptions](./docs/subscription.md)|
+|Subscription based publication mechanism.|[Actions & Receivers](./docs/actions-and-receivers.md)|
+|Support for secure signature based packet source verification.|[Authentication](./docs/authentication.md)|
 |Modern command line interface for managing instances.|[CLI Usage](./docs/cli.md)|
-|Secure permission driven remote execution on peered instances.|[Tokens](./docs/tokens.md)|
-|Subscription based publication chaining.|[Publishing](./docs/publishing.md)|
-|Support for secure signature based packet source verification.|[Validation Tokens](./docs/vts.md)|
+|Secure permission driven remote execution on peered instances.|[Tokens](./docs/authentication.md)|
 |Support for TLS providing a secure tunnel with end-to-end encryption for data transport.|[TLS](#configuring-tls-for-your-coattail-service)|
 
 # Installing Coattail
