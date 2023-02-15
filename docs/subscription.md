@@ -5,13 +5,11 @@
 sequenceDiagram
     autonumber
 
-    participant Publisher
-    participant Subscriber
+    actor Publisher
+    actor Subscriber
 
-    Subscriber ->> Publisher: Send Action/Reciever
-    Note over Publisher: Validate Subscribable
-    Note over Publisher: Validate Duplicate
-    Note over Publisher: Validate Action
+    Subscriber ->> Publisher: Subscribe to Action with Receiver
+    Note over Publisher: Validate Request
     Note over Publisher: Issue Validation
     Publisher ->> Subscriber: Request Subscription Token using Validation & Authentication Token ID
     Note over Subscriber: Save Validation
@@ -29,11 +27,11 @@ sequenceDiagram
 sequenceDiagram
     autonumber
 
-    participant Publisher
-    participant Subscriber
+    actor Publisher
+    actor Subscriber
 
     Note over Subscriber: Validate Subscription
-    Note over Subscriber: Delete VT
+    Note over Subscriber: Delete Validation Token
     Note over Subscriber: Delete Subscription
 
     Subscriber ->> Publisher: Notify Unsubscribe
@@ -48,8 +46,8 @@ sequenceDiagram
 sequenceDiagram
     autonumber
 
-    participant Publisher
-    participant Subscriber
+    actor Publisher
+    actor Subscriber
 
     Note over Publisher: Validate Subscription
 

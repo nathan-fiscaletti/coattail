@@ -6,7 +6,7 @@
 
 Coattail is a secure [peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer) remote execution and data publication service. It's intention is to provide a generic publication mechanism in which subscribers can utilize the publication data in anyway they see fit.
 
-![Preview](./docs/images//preview.gif)
+![Preview](./docs/images/preview.gif)
 
 # Index
 
@@ -14,7 +14,6 @@ Coattail is a secure [peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer) 
 - [Installing Coattail](#installing-coattail)
 - [Getting started](#getting-started)
   - [Initializing a Coattail Instance](#initializing-a-coattail-instance)
-  - [Running Database Migrations](#running-database-migrations)
   - [Managing your Coattail Service](#managing-your-coattail-service)
 - [Configuring TLS for your Coattail Service](#configuring-tls-for-your-coattail-service)
   - [Generating Certificate & Key](#generating-certificate--key)
@@ -36,15 +35,13 @@ Coattail is a secure [peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer) 
 
 Coattail is primarily a command-line application. You can install Coattail via the [Node Package Manager](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm). I would highly recommend you install NPM using [`nvm`](https://github.com/nvm-sh/nvm) instead of the official distribution. Provided you have NPM installed, you can run the following command to install Coattail.
 
-```sh
+```ps
 $ npm i -g coattail
 ```
 
-Once completed, the Coattail command will be available globally on your system. You can verify that the installation was successful by attempting to run the `coattail` command. You should see the following output.
+Once completed, the Coattail command will be available globally on your system. You can verify that the installation was successful by attempting to run the `coattail` command. You should see the following output. If you do not see the expected output, verify that your Node installations `bin` directory is added to your path. See [here](https://docs.npmjs.com/cli/v8/configuring-npm/folders#executables) for more information.
 
-![Install Success](./docs/images/install-success.png)
-
-If you do not see the expected output, verify that your Node installations `bin` directory is added to your path. See [here](https://docs.npmjs.com/cli/v8/configuring-npm/folders#executables) for more information.
+![Install Success](./docs/images/install-success-2.png)
 
 # Getting started
 
@@ -54,17 +51,19 @@ This quick guide will walk you through creating your first Coattail instance and
 
 > You will need an empty directory in which to store your Coattail Instances files.
 
-```sh
-$ mkdir my-coattail-instance
-$ coattail new ./my-coattail-instance
+```ps
+$ mkdir "my-coattail-instance" ; cd "my-coattail-instance"
+$ coattail new "./"
 ```
 
 You should now have the following file structure in your Coattail Instance directory.
 
 ```yaml
 my-coattail-instance/
-├── actions            # Actions that this instance can perform.
+├── actions            # Actions that can be performed with this instance.
+│   └── <empty>
 ├── receivers          # Receivers for incoming publications.
+│   └── <empty>
 ├── keys               # Cryptographic keys
 │   ├── auth-key.pem   # Authentication private key.
 │   ├── auth-key.pub   # Authentication public key.
@@ -73,85 +72,70 @@ my-coattail-instance/
 ├── data.db            # Local data storage.
 ├── package.json       # The npm package file for the Coattail instance.
 ├── config.yml         # Instance configuration.
-└── service.log        # Your service log file.
-```
-
-## Running Database Migrations
-
-Once you have created the Coattail Instance, you will need to run Database Migrations to set up the Coattail Instances database for first time use. This database is used to store information about registered peers, issued tokens, subscriptions and other types of persistent data used by the Coattail instance.
-
-To run the database migrations, navigate to your Coattail Instance and run the following command.
-
-```sh
-$ coattail data migrate latest
-```
-
-# Managing Actions & Receivers
-
-The basic purpose of Coattail revolves around Actions and Receivers. An action is a small module of code that can be executed on the instance. Once completed, the results of this action can optionally be published. When published, other Coattail instances that have subscribed to the particular Action on this instance will be notified of the resulting data. When notified, these subscriptions are processed by Receivers.
-
-```mermaid
-sequenceDiagram
-    autonumber
-
-    participant Publisher
-    participant Action
-    participant Subscriber
-    participant Receiver
-
-    Publisher ->> Action: Perform Action
-    Publisher ->> Subscriber: Publish Result
-    Subscriber ->> Receiver: Handle Result
+├── service.log        # Your service log file.
+└── .ct.version        # Version file for Coattail CLI.
 ```
 
 ## Managing your Coattail service
 
+There are several commands built into the Coattail CLI that can be used to manage the instance of Coattail running on your system. These can be used to start a service, stop a service or list running services on the system.
+
+![Service Status](./docs/images/service-status-2.png)
+
+### Starting a Service
+
 Your Coattail Instance will need to be running in order to communicate with peering Coattail instances. You should ideally run your Coattail Instance in headless mode to keep it running in the background. To start your coattail instance, navigate to your Coattail instance and run the following command.
 
-```sh
+```ps
 $ coattail service start --headless
 ```
 
+### Viewing Service Status
+
 You can check the status of your Coattail instance (along with any other Coattail instance running on the system) by navigating to any Coattail instance and running the following command.
 
-```sh
+```ps
 $ coattail service status
 ```
 
+### Stopping a Service
+
 You can stop a Coattail instance by determining the PID for the service (this is listed in the output of the `status` command above) and passing it to the following command.
 
-```sh
+```ps
 $ coattail service stop <pid>
 ```
 
-## Configuring TLS for your Coattail Service
+# Configuring TLS for your Coattail Service
 
 By default Coattail runs over plain TCP/IP. Coattial is most secure when running over TCP/IP with TLS. You can enable TLS in your instances `config.yml` file.
 ### Generating Certificate & Key
 
 Before you can enable TLS, you will need to generate a Certificate and Key. It is important that when generating your certificate you provide the **Issuer Hash** from your Coattail instance for the "Common Name" (_CN_).
 
-![Token Issuer](./docs/images/issuer.png)
+![Token Issuer](./docs/images/issuer-2.png)
+
+> The token issuer is based on a Base-64 encoded SHA-256 hash of your public Validation Token. As such, replacing your Validation Token will change your issuer hash. This means that if you change your Validation Token you will also need to re-generate your Certificate & Key.
 
 Once you've retrieved the issuer hash from your Coattail instance, you can generate the certificate and key using the following commands.
 
-```sh
+```ps
 # Retrieve the issuer hash
 # This will be used for the CN value in your certificate
 $ coattail token issuer
 
 # Generate the key
-$ openssl genrsa -out server-key.pem 1024
+$ openssl genrsa -out "server-key.pem" 1024
 
 # Generate a CSR for the certificate
 # Make sure to use the issuer hash for the Common Name (CN)
-$ openssl req -new -key server-key.pem -out server-csr.pem
+$ openssl req -new -key "server-key.pem" -out "server-csr.pem"
 
 # Generate the certificate
-$ openssl x509 -req -in server-csr.pem -signkey server-key.pem -out server-cert.pem
+$ openssl x509 -req -in "server-csr.pem" -signkey "server-key.pem" -out "server-cert.pem"
 
 # Remove the CSR as we no longer need it.
-$ rm server-csr.pem
+$ rm "server-csr.pem"
 ```
 
 > I recommend you place this key and certificate in the `keys` directory of your Coattail instance alongside the other cryptographic keys used by the instance.
