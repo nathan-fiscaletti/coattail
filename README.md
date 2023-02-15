@@ -45,7 +45,7 @@ Coattail is a secure [peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer) 
 
 Coattail is primarily a command-line application. You can install Coattail via the [Node Package Manager](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm). I would highly recommend you install NPM using [`nvm`](https://github.com/nvm-sh/nvm) instead of the official distribution. Provided you have NPM installed, you can run the following command to install Coattail.
 
-```ps
+```shell
 $ npm i -g coattail
 ```
 
@@ -61,7 +61,7 @@ This quick guide will walk you through creating your first Coattail instance and
 
 > You will need an empty directory in which to store your Coattail Instances files.
 
-```ps
+```shell
 $ mkdir "my-coattail-instance" ; cd "my-coattail-instance"
 $ coattail new "./"
 ```
@@ -96,7 +96,7 @@ There are several commands built into the Coattail CLI that can be used to manag
 
 Your Coattail Instance will need to be running in order to communicate with peering Coattail instances. You should ideally run your Coattail Instance in headless mode to keep it running in the background. To start your coattail instance, navigate to your Coattail instance and run the following command.
 
-```ps
+```shell
 $ coattail service start --headless
 ```
 
@@ -104,7 +104,7 @@ $ coattail service start --headless
 
 You can check the status of your Coattail instance (along with any other Coattail instance running on the system) by navigating to any Coattail instance and running the following command.
 
-```ps
+```shell
 $ coattail service status
 ```
 
@@ -112,7 +112,7 @@ $ coattail service status
 
 You can stop a Coattail instance by determining the PID for the service (this is listed in the output of the `status` command above) and passing it to the following command.
 
-```ps
+```shell
 $ coattail service stop <pid>
 ```
 
@@ -129,7 +129,7 @@ Before you can enable TLS, you will need to generate a Certificate and Key. It i
 
 Once you've retrieved the issuer hash from your Coattail instance, you can generate the certificate and key using the following commands.
 
-```ps
+```shell
 # Retrieve the issuer hash
 # This will be used for the CN value in your certificate
 $ coattail token issuer
@@ -196,7 +196,7 @@ The following command will create a new action on your Coattail instance. This s
 
 The default behavior for this newly created action will be to simply return whatever input it has received as it's output. You can of course customize this behavior to tailor the action to whatever you'd like it to perform. However, if you intend to allow your action to be remotely executed, it is important that you perform thorough validation of the input data.
 
-```ps
+```shell
 $ coattail action create --name "My Action"
 ```
 
@@ -217,7 +217,7 @@ You can perform this action locally by running the following command. The action
 
 ![Perform Action](./docs/images/action-perform.png)
 
-```ps
+```shell
 $ coattail action perform --action "My Action" --data '{"name":"Nathan"}'
 ```
 
@@ -227,13 +227,13 @@ Once an action is performed, you can optionally notify any subscribers who are s
 
 ![Publish Action](./docs/images/action-notify.png)
 
-```ps
+```shell
 $ coattail action perform --action "My Action" --data '{"name":"Nathan"}' --notify
 ```
 
 Alternately, you can directly publish data to subscribers of an action without performing the action.
 
-```ps
+```shell
 $ coattail action publish --action "My Action" --data '{"name":"Nathan"}'
 ```
 
@@ -241,7 +241,7 @@ $ coattail action publish --action "My Action" --data '{"name":"Nathan"}'
 
 To list the available actions on your Coattail instance, you can use the following command:
 
-```ps
+```shell
 $ coattail action list
 ```
 
@@ -257,7 +257,7 @@ The following command will create a new receiver on your Coattail instance. This
 
 The default behavior for this newly created receiver will be a no-op. You should customize this behavior to appropriately handle the incoming data published by the action.
 
-```ps
+```shell
 $ coattail action create --name "My Receiver" --receiver
 ```
 
@@ -275,7 +275,7 @@ module.exports = (Coattail) => class extends Coattail.Receiver {
 
 To list the available receivers on your Coattail instance, you can use the following command:
 
-```ps
+```shell
 $ coattail action list --receivers
 ```
 
