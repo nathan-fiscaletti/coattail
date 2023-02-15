@@ -6,18 +6,20 @@
 
 Coattail is a secure [peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer) remote execution and data publication service. It's intention is to provide a generic publication mechanism in which subscribers can utilize the publication data in anyway they see fit.
 
+> This project is still in it's infancy and should not be used in any production environments or for any application that handles sensitive data.
+
 ![Preview](./docs/images/preview.gif)
 
 # Features
 
 |Feature|Documentation|
 |---|---|
-|Peer-to-peer architecture providing a decentralized base for communication.|[Architecture](./docs/architecture.md)|
+|Peer-to-peer architecture providing a decentralized base for communication.|[Architecture](#)|
 |Easy to use data manipulation, publication and subscription.|[Subscriptions](./docs/subscription.md)|
 |Subscription based publication mechanism.|[Actions & Receivers](#managing-actions--receivers)|
 |Support for secure signature based packet source verification.|[Authentication](#authentication)|
-|Modern command line interface for managing instances.|[CLI Usage](./docs/cli.md)|
-|Secure permission driven remote execution on peered instances.|[Tokens](#authentication)|
+|Modern command line interface for managing instances.|[CLI Usage](#)|
+|Secure permission driven remote execution on peered instances.|[Remote Execution](#)|
 |Support for TLS providing a secure tunnel with end-to-end encryption for data transport.|[TLS](#configuring-tls-for-your-coattail-service)|
 
 # Index
@@ -277,6 +279,8 @@ $ coattail action list --receivers
 ```
 
 # Authentication
+
+Coattail has a robust authentication protocol built in with features such as signature based packet source verification. Below we will outline how to configure this authentication mechanism, as well as how to issue or revoke authentication tokens and validation tokens.
 
 ## Configuring Authentication
 
