@@ -8,7 +8,7 @@ Coattail is a secure [peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer) 
 
 > This project is still in it's infancy and should not be used in any production environments or for any application that handles sensitive data.
 
-![Preview](./docs/images/preview.gif)
+![Preview](./docs/images/preview-2.gif)
 
 # Features
 
