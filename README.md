@@ -477,6 +477,9 @@ authentication:
 ### Basic Token Issuance
 
 To issue a generic token you can run the following command on the _Issuing Coattail Instance_.
+
+![Token Issue](./docs/images/token-issue.png)
+
 ```sh
 $ coattail token issue
 ```
