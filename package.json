@@ -1,6 +1,6 @@
 {
   "name": "coattail",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A secure peer-to-peer remote execution and data publication service.",
   "repository": "https://github.com/nathan-fiscaletti/coattail",
   "main": "index.js",
@@ -24,8 +24,8 @@
     "find-process": "^1.4.7",
     "ip-range-check": "^0.2.0",
     "js-yaml": "^4.1.0",
-    "jsonwebtoken": "^8.5.1",
-    "knex": "^0.95.15",
+    "jsonwebtoken": "^9.0.0",
+    "knex": "^2.4.2",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "node-json-color-stringify": "^1.1.0",
