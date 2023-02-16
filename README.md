@@ -16,11 +16,11 @@ Coattail is a secure [peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer) 
 |---|---|
 |Peer-to-peer architecture providing a decentralized base for communication.|[Architecture](#)|
 |Easy to use data manipulation, publication and subscription.|[Subscriptions](./docs/subscription.md)|
+|Support for TLS providing a secure tunnel with end-to-end encryption for data transport.|[Configuring TLS](#configuring-tls-for-your-coattail-service)|
 |Subscription based publication mechanism.|[Actions & Receivers](#managing-actions--receivers)|
+|Secure permission driven remote execution on peered instances.|[Remote Execution](#)|
 |Support for secure signature based packet source verification.|[Authentication](#authentication)|
 |Modern command line interface for managing instances.|[CLI Usage](#)|
-|Secure permission driven remote execution on peered instances.|[Remote Execution](#)|
-|Support for TLS providing a secure tunnel with end-to-end encryption for data transport.|[TLS](#configuring-tls-for-your-coattail-service)|
 
 # Index
 
@@ -34,6 +34,12 @@ Coattail is a secure [peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer) 
 - [Managing Actions & Receivers](#managing-actions--receivers)
   - [Actions](#actions)
   - [Receivers](#receivers)
+- [Managing Peers](#managing-peers)
+  - [Adding a Peer](#adding-a-peer)
+  - [Retrieve Peer Information](#retrieve-peer-information)
+- [Managing Subscriptions](#subscriptions)
+  - [Subscribing & Un-subscribing](#subscribing--un-subscribing)
+  - [Revoking a Subscription](#revoking-a-subscription)
 - [Authentication](#authentication)
   - [Configuring Authentication](#configuring-authentication)
   - [Token Issuance](#token-issuance)
@@ -277,6 +283,152 @@ To list the available receivers on your Coattail instance, you can use the follo
 
 ```shell
 $ coattail action list --receivers
+```
+
+# Managing Peers
+
+A peer is any Coattail instance that has allowed you to subscribe to one or more actions published by the issuing Coattail instance, or that has allowed you to perform or publish actions on it's behalf. The specifics of which of these operations are permitted by the peer is determined based on the Authentication Token you are issued. See [Authentication: Token Permissions](#token-permissions) for more information.
+
+## Adding a Peer
+
+You can add a peer by requesting an Authentication Token from the administrator of the Coattail Instance you wish to peer with. They will generate this token by following the instructions outlined in [Authentication: Token Issuance](#token-issuance). Once you have the Authentication Token, you can add the peer by running the following command.
+
+![Add Peer](./docs/images/peer-add.png)
+
+```shell
+$ coattail peer add --token <token>
+```
+
+Once completed, you will now have an ID associated with the peer. This ID will be used in subsequent commands related to the peer you have added. You can see the peer in your list of peers by running the following command.
+
+```shell
+$ coattail peer list
+```
+
+## Retrieving Peer Information
+
+You can retrieve detailed information about the token you were issued by running the following command. This information includes what operations you are permitted to execute on the peer, whether or not your connection to the peer is using TLS, relevant connection data that will be used and much more.
+
+![Peer Show](./docs/images/peer-show.png)
+
+```shell
+$ coattail peer show --id <id>
+```
+
+# Managing Subscriptions
+
+> In order to subscribe to an action on another Coattail instance, you must have it registered as a peer. This is covered in the [Managing Peers](#managing-peers) documentation.
+
+# Subscribing & Un-subscribing
+
+In order to subscribe to an action on a peer, you must first list the available actions for that peer. You can do this by taking advantage of some of the remote execution features of Coattail.
+
+Normally, you would list your own actions as described in [Listing Available Actions](#listing-available-actions), however in our instance we're going to add the `--peer` flag to the command. This will tell Coattail to run the operation on that peer, as opposed to our local Coattail instance. Once you've determined which actions you can subscribe to, you can subscribe to them using the `action subscribe` sub command.
+
+![Peer Action List & Subscribe](./docs/images/peer-action-list-and-subscribe.png)
+
+```shell
+$ coattail action list --peer <id>
+```
+
+```shell
+$ coattail action subscribe \
+                      --peer <id> \
+                      --action <action> \
+                      --receiver <receiver>
+```
+
+The `<id>` you provide here is the peer you are subscribing to the action on. The `<action>` is the particular action you are subscribing to, and the `<receiver>` is the local receiver you'd like to use to handle publications from this action. Under the hood, the following operations take place between the two peers.
+
+```mermaid
+sequenceDiagram
+    autonumber
+
+    actor Publisher
+    actor Subscriber
+
+    Subscriber ->> Publisher: Subscribe to Action with Receiver
+    Note over Publisher: Validate Request
+    Note over Publisher: Issue Validation
+    Publisher ->> Subscriber: Request Subscription Token using Validation & Authentication Token ID
+    Note over Subscriber: Save Validation
+    Note over Subscriber: Issue Subscription
+    Subscriber ->> Publisher: Respond with Subscription Token and Subscription Token ID
+    Note over Publisher: Save Subscription
+    Publisher ->> Subscriber: Terminate Success with Subscription Token ID
+```
+
+Once you have subscribed to the action, if you decide you no longer wish to receive publications from that particular action, you can un-subscribe from it using a similar command.
+
+```shell
+$ coattail action unsubscribe \
+                      --peer <id> \
+                      --action <action> \
+                      --receiver <receiver>
+```
+
+When you un-subscribe from an action, under the hood the following operations take place between the peers.
+
+```mermaid
+sequenceDiagram
+    autonumber
+
+    actor Publisher
+    actor Subscriber
+
+    Note over Subscriber: Validate Subscription
+    Note over Subscriber: Delete Validation Token
+    Note over Subscriber: Delete Subscription
+
+    Subscriber ->> Publisher: Notify Unsubscribe
+
+    Note over Publisher: Validate Subscription
+    Note over Publisher: Validate Permissions
+    Note over Publisher: Delete Subscription
+```
+
+## Revoking a Subscription
+
+If you have issued an Authentication to a peer and they have subscribed to an action, but you wish to revoke that distinct subscription without revoking the subscribers ability to subscribe to actions, you can do so using the `subscribers` sub-command.
+
+First, you will need to list the active subscriptions to determine which one you wish to revoke. You can do this using the `subscribers list` sub-command.
+
+![Subscribers List](./docs/images/subscribers-list.png)
+
+```shell
+$ coattail subscribers list
+```
+
+In the output of this command, the "Subscribed with Token" field references the ID of the token that was issued to this subscriber when you initially granted them access to your Coattail instance as described in [Authentication: Token Issuance](#token-issuance). You can use this along side the "Subscribed To" header to determine which subscription you wish to revoke.
+
+Once you've decided which subscription to revoke, simply pass that subscription ID into the `subscribers revoke` sub-command.
+
+![Subscribers Revoke](./docs/images/subscribers-revoke.png)
+
+```shell
+$ coattail subscribers revoke <id>
+```
+
+When you revoke a subscription for a peer, under the hood the following operations take place between the two peers.
+
+```mermaid
+sequenceDiagram
+    autonumber
+
+    actor Publisher
+    actor Subscriber
+
+    Note over Publisher: Validate Subscription
+
+    par
+        Note over Publisher: Delete Subscription
+    and
+        Publisher ->> Subscriber: Notify Subscription Revocation
+        Note over Subscriber: Validate Subscription
+        Note over Subscriber: Validate Permissions
+        Note over Subscriber: Delete VT
+        Note over Subscriber: Delete Subscription
+    end
 ```
 
 # Authentication
