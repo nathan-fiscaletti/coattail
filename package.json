@@ -1,7 +1,8 @@
 {
   "name": "coattail",
-  "version": "1.0.1",
-  "description": "",
+  "version": "1.0.2",
+  "description": "A secure peer-to-peer remote execution and data publication service.",
+  "repository": "https://github.com/nathan-fiscaletti/coattail",
   "main": "index.js",
   "directories": {
     "lib": "lib"
