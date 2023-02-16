@@ -2,11 +2,15 @@
     <img src="./logo.png" />
 </p>
 
+> This project is still in it's infancy and should not be used in any production environments or for any application that handles sensitive data.
+
 # Coattail
 
-Coattail is a secure [peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer) remote execution and data publication service. It's intention is to provide a generic publication mechanism in which subscribers can utilize the publication data in anyway they see fit.
+**"Ride the Coattails"** _To succeed by virtue of association._
 
-> This project is still in it's infancy and should not be used in any production environments or for any application that handles sensitive data.
+Coattail was based on the practice of ["Coattail Investing" or "Copy Trading"](https://www.investopedia.com/terms/c/coattailinvesting.asp). Unlike those practices, which are aimed at mimicking the trades made by well known investors, Coattail targets real-time notification of events. While it is only based on this investment practice and **not intended to be used for investment purposes**, it mimics the concept in that an action performed by one party can trigger actions to be performed by one or more other parties. Coattail takes this a step further however allowing for a waterfall effect to take place.
+
+In more technical terms, Coattail is a secure [peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer) remote execution and data publication service. It's intention is to provide a generic publication mechanism in which subscribers can utilize the publication data in anyway they see fit.
 
 ![Preview](./docs/images/preview-2.gif)
 
@@ -15,11 +19,11 @@ Coattail is a secure [peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer) 
 |Feature|Documentation|
 |---|---|
 |Peer-to-peer architecture providing a decentralized base for communication.|[Architecture](#)|
-|Easy to use data manipulation, publication and subscription.|[Subscriptions](./docs/subscription.md)|
+|Easy to use data manipulation, publication and subscription.|[Managing Subscriptions](#managing-subscriptions)|
 |Support for TLS providing a secure tunnel with end-to-end encryption for data transport.|[Configuring TLS](#configuring-tls-for-your-coattail-service)|
 |Subscription based publication mechanism.|[Actions & Receivers](#managing-actions--receivers)|
-|Secure permission driven remote execution on peered instances.|[Remote Execution](#)|
-|Support for secure signature based packet source verification.|[Authentication](#authentication)|
+|Secure permission driven remote execution on peered instances.|[Remote Execution](#remote-execution)|
+|Support for secure signature based packet source verification.|[Validation Tokens](#validation-tokens)|
 |Modern command line interface for managing instances.|[CLI Usage](#)|
 
 # Index
@@ -34,13 +38,16 @@ Coattail is a secure [peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer) 
 - [Managing Actions & Receivers](#managing-actions--receivers)
   - [Actions](#actions)
   - [Receivers](#receivers)
+  - [Actions API](#actions-api)
+  - [Remote Execution](#remote-execution)
 - [Managing Peers](#managing-peers)
   - [Adding a Peer](#adding-a-peer)
   - [Retrieve Peer Information](#retrieve-peer-information)
-- [Managing Subscriptions](#subscriptions)
+- [Managing Subscriptions](#managing-subscriptions)
   - [Subscribing & Un-subscribing](#subscribing--un-subscribing)
   - [Revoking a Subscription](#revoking-a-subscription)
 - [Authentication](#authentication)
+  - [General Token Management](#general-token-management)
   - [Configuring Authentication](#configuring-authentication)
   - [Token Issuance](#token-issuance)
   - [Token Revocation](#token-revocation)
@@ -61,7 +68,7 @@ Once completed, the Coattail command will be available globally on your system. 
 
 # Getting started
 
-This quick guide will walk you through creating your first Coattail instance and initializing it for first time use. It includes creating the Coattail instance, running it's database Migrations and starting it's core service.
+This quick guide will walk you through creating your first Coattail instance and initializing it for first time use. It includes creating the Coattail instance and starting it's core service.
 
 ## Initializing a Coattail Instance
 
@@ -285,6 +292,43 @@ To list the available receivers on your Coattail instance, you can use the follo
 $ coattail action list --receivers
 ```
 
+## Actions API
+
+The Coattail Actions API is exported to actions and receivers in your Coattail instance through the `Coattail` parameter. You can use this to control your Coattail instance from within an Action or Receiver. The Coattail API includes access to the `Peer` class, the `Action` class and the `Receiver` class.
+
+A common use case for this might be to trigger another action when a Receiver is executed.
+
+```js
+/* ./receivers/My Receiver.js */
+
+module.exports = (Coattail) => class extends Coattail.Receiver {
+    // When the receiver is triggered, perform another action
+    async onReceived(input) {
+        // Retrieve the local peer instance.
+        const local = Coattail.Peer.local();
+
+        // Perform the other action, notifying it's subscribers
+        await local.performAction({
+            name: "My Action",
+            publish: true,
+            data: {
+                name: "Nathan"
+            },
+        });
+    }
+};
+```
+
+## Remote Execution
+
+Certain commands can be run remotely on a peer, provided you have the appropriate permission. This can be useful if you wish to remotely execute a task, or simply see what tasks are available to you on another instance. To remotely execute a command, you must add the `--peer <id>` flag to it; providing the ID of the peer you wish to remotely execute the command on.
+
+> In order to remotely execute a command, you must first add a peer using an Authentication Token. See [Managing Peers](#managing-peers) for more information.
+
+![Remote Execute Action List](./docs/images/remote-execute-action-list.png)
+
+The commands available for remote execution include **performing an action**, **publishing an action** and **listing available actions**. In order to perform or publish an action on a peer, that peer must have granted you permission to do so when they issued you your Authentication Token. See [Authentication: Token Permissions](#token-permissions) for more information.
+
 # Managing Peers
 
 A peer is any Coattail instance that has allowed you to subscribe to one or more actions published by the issuing Coattail instance, or that has allowed you to perform or publish actions on it's behalf. The specifics of which of these operations are permitted by the peer is determined based on the Authentication Token you are issued. See [Authentication: Token Permissions](#token-permissions) for more information.
@@ -435,6 +479,34 @@ sequenceDiagram
 
 Coattail has a robust authentication protocol built in with features such as signature based packet source verification. Below we will outline how to configure this authentication mechanism, as well as how to issue or revoke authentication tokens and validation tokens.
 
+## General Token Management
+
+You can manage the tokens stored in your Coattail instances database using the `coattail token` subcommands. These commands allow you to issue new tokens, list the tokens currently stored in your database and remove or revoke the tokens stored in your database.
+
+### Types of Tokens
+
+Tokens stored in your database have one of three types. These include Validation Tokens, Authentication Tokens and Publisher Authentication Tokens.
+
+|Type|Description|
+|---|---|
+|Validation Tokens|Used to verify a peers distinct ability to utilize it's Authentication Token. These act as public keys in the exchange. See [Validation Tokens](#validation-tokens) for more information.
+|Authentication Tokens|Used as a means of authentication between peers. These are signed tokens granting access to different actions that may be performed by the peer. See [Token Permissions](#token-permissions) for more information.|
+|Publisher Authentication Tokens|These tokens are automatically generated by the system during the subscription process. They are used as limited Authentication Tokens so that the publishing instance can notify subscribers of events. See [Managing Subscriptions](#managing-subscriptions) for more information.|
+
+### Listing Tokens
+
+You can list all tokens currently stored for your Coattail Instance using the following commands. Keep in mind that Validation Tokens are listed using the `coattail validation` sub-commands where as Authentication Tokens are listed using the `coattail token` sub-commands.
+
+![Token List](./docs/images/token-list.png)
+
+```shell
+$ coattail token list
+```
+
+```shell
+$ coattail validation list
+```
+
 ## Configuring Authentication
 
 ### Token Ownership
@@ -484,7 +556,7 @@ To issue a generic token you can run the following command on the _Issuing Coatt
 $ coattail token issue
 ```
 
-This will issue a signed token that can be used by a _Bearing Coattail Instance_ to connect to the _Issuing Coattail Instance_. The permissions embeded in the token will allow the _Bearing Coattail Instance_ to subscribe to any action on the _Issuing Coattail Instance_, but it will not be able to remotely perform or publish actions on its behalf.
+This will issue a signed token that can be used by a _Bearing Coattail Instance_ to connect to the _Issuing Coattail Instance_. The permissions embedded in the token will allow the _Bearing Coattail Instance_ to subscribe to any action on the _Issuing Coattail Instance_, but it will not be able to remotely perform or publish actions on its behalf.
 
 After executing the command, by default, the issued token will be stored locally in your database and the raw JWT will be copied to your clipboard. If you wish to print the token instead of copying it to the clipboard, you can use `--print-raw-token`.
 
@@ -510,7 +582,7 @@ $ coattail token issue --bearers '[
 
 When issuing a token, you can specify which actions the _Bearing Coattail Instance_ can perform, publish or subscribe to on the issuing Coattail instance.
 
-> See: [Managing Actions](./actions.md) for more information on the distinction between "publishing" an action and "performing" an action.
+> See: [Managing Actions & Receivers](#managing-actions--receivers) for more information on the distinction between "publishing" an action and "performing" an action.
 
 * "**Subscribable**": A JSON encoded array containing action names corresponding to actions on the _Issuing Coattail Instance_ who's output can be subscribed to by the _Bearing Coattail Instance_.
 * "**Publishable**": A JSON encoded array containing action names corresponding to actions on the _Issuing Coattail Instance_ who's subscribers can be remotely notified by the _Bearing Coattail Instance_ with plain data.
@@ -582,7 +654,7 @@ They are generated by the _Bearing Coattail Instance_ and used as a Bearer when 
    $ coattail validation add <validation-token>
    ```
 
-   This will make the validation token available for general token issuange.
+   This will make the validation token available for general token issuance.
 
    > Note the Token ID returned for the Validation Token.
 
@@ -602,6 +674,8 @@ See `coattail validation --help` for more information.
 
 ## Development Progress
 
+- [x] Actions API documentation
+- [x] Token / Authentication documentation
 - [ ] Implement a rate limiting mechanism in the network protocol.
 - [ ] Cascade deletions for Peer, Token, etc.
 - [ ] When notifying a subscriber, if the subscription token fails to authenticate, delete it.
