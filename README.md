@@ -31,6 +31,7 @@ In more technical terms, Coattail is a secure [peer-to-peer](https://en.wikipedi
 - [Installing Coattail](#installing-coattail)
 - [Getting started](#getting-started)
   - [Initializing a Coattail Instance](#initializing-a-coattail-instance)
+  - [Coattail Instance as a Node.js Package](#coattail-instance-as-a-nodejs-package)
   - [Managing your Coattail Service](#managing-your-coattail-service)
 - [Configuring TLS for your Coattail Service](#configuring-tls-for-your-coattail-service)
   - [Generating Certificate & Key](#generating-certificate--key)
@@ -97,6 +98,15 @@ my-coattail-instance/
 ├── config.yml         # Instance configuration.
 ├── service.log        # Your service log file.
 └── .ct.version        # Version file for Coattail CLI.
+```
+
+## Coattail Instance as a Node.js Package
+
+Each Coattail instance is in itself a node package. This means you can add dependencies and write custom code directly in your Coattail instance, and consume it from either your Actions or your Receivers.
+
+```shell
+$ cd my-coattail-instance
+$ npm i lodash
 ```
 
 ## Managing your Coattail service
