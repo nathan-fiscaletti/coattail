@@ -8,9 +8,15 @@
 
 **"Ride the Coattails"** _To succeed by virtue of association._
 
-Coattail was based on the practice of ["Coattail Investing" or "Copy Trading"](https://www.investopedia.com/terms/c/coattailinvesting.asp). Unlike those practices, which are aimed at mimicking the trades made by well known investors, Coattail targets real-time notification of events. While it is only based on this investment practice and **not intended to be used for investment purposes**, it mimics the concept in that an action performed by one party can trigger actions to be performed by one or more other parties. Coattail takes this a step further however allowing for a waterfall effect to take place.
+Coattail is a cutting-edge application that draws inspiration from the popular investment strategy known as ["Coattail Investing" or "Copy Trading"](https://www.investopedia.com/terms/c/coattailinvesting.asp). While similar practices aim to replicate the trades executed by well-known investors, Coattail takes a different approach by focusing on real-time event notifications. While it is not intended for actual investment purposes, Coattail explores the underlying concept of one party's actions triggering subsequent actions by one or more other parties. However, Coattail distinguishes itself by introducing a remarkable feature—the ability to create a cascading effect.
 
-In more technical terms, Coattail is a secure [peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer) remote execution and data publication service. It's intention is to provide a generic publication mechanism in which subscribers can utilize the publication data in anyway they see fit.
+In more technical terms, Coattail stands as a secure [peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer) remote execution and data publication service. Its primary objective is to provide subscribers with a flexible and robust publication mechanism, enabling them to utilize the published data in a manner that suits their individual needs and preferences.
+
+Coattail places great emphasis on security, employing state-of-the-art encryption protocols to ensure the confidentiality and integrity of data transmission. This commitment to privacy and reliability ensures that users can trust the information exchanged within the Coattail ecosystem.
+
+Furthermore, Coattail's peer-to-peer architecture guarantees seamless connectivity and quick delivery of notifications, allowing subscribers to stay constantly updated and respond promptly to relevant events.
+
+In summary, Coattail is a forward-thinking application that combines the principles of Coattail Investing and Copy Trading with advanced technology. It introduces an ecosystem where real-time events trigger actions among users. With its secure and efficient peer-to-peer infrastructure, Coattail offers subscribers a versatile publication mechanism.
 
 ![Preview](./docs/images/preview-2.gif)
 
